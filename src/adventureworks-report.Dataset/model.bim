@@ -100,11 +100,11 @@
         ],
         "expression": [
           "let",
-          "    Source = (Parameter1) => let",
-          "        Source = Csv.Document(Parameter1,[Delimiter=\",\", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
-          "        #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true])",
-          "    in",
-          "        #\"Promoted Headers\"",
+          "    Source = (Parameter1 as binary) => let",
+          "    Source = Csv.Document(Parameter1,[Delimiter=\",\", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
+          "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true])",
+          "in",
+          "    #\"Promoted Headers\"",
           "in",
           "    Source"
         ],
@@ -442,6 +442,32 @@
             "lineageTag": "aa0b5438-62a4-473a-8e92-19c66ed8bc66",
             "sourceColumn": "HomeOwner",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Full Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "891e5354-a914-4fde-9c2b-647dde39e51d",
+            "sourceColumn": "Full Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Domain Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8bbf520d-ea58-46fb-bcdc-6f3af0cd78c7",
+            "sourceColumn": "Domain Name",
+            "summarizeBy": "none"
           }
         ],
         "lineageTag": "3c13548c-1b87-441a-8507-a29d2c670cbe",
@@ -454,9 +480,20 @@
                 "let",
                 "    Source = Csv.Document(File.Contents(\"C:\\Users\\Gump\\Desktop\\AdventureWork Report\\adventureworks-report\\data\\AdventureWorks Customer Lookup.csv\"),[Delimiter=\",\", Columns=13, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"CustomerKey\", Int64.Type}, {\"Prefix\", type text}, {\"FirstName\", type text}, {\"LastName\", type text}, {\"BirthDate\", type date}, {\"MaritalStatus\", type text}, {\"Gender\", type text}, {\"EmailAddress\", type text}, {\"AnnualIncome\", Int64.Type}, {\"TotalChildren\", Int64.Type}, {\"EducationLevel\", type text}, {\"Occupation\", type text}, {\"HomeOwner\", type text}})",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"CustomerKey\", Int64.Type}, {\"Prefix\", type text}, {\"FirstName\", type text}, {\"LastName\", type text}, {\"BirthDate\", type date}, {\"MaritalStatus\", type text}, {\"Gender\", type text}, {\"EmailAddress\", type text}, {\"AnnualIncome\", Int64.Type}, {\"TotalChildren\", Int64.Type}, {\"EducationLevel\", type text}, {\"Occupation\", type text}, {\"HomeOwner\", type text}}),",
+                "    #\"Removed Errors\" = Table.RemoveRowsWithErrors(#\"Changed Type\", {\"CustomerKey\"}),",
+                "    #\"Filtered Rows\" = Table.SelectRows(#\"Removed Errors\", each [CustomerKey] <> null and [CustomerKey] <> \"\"),",
+                "    #\"Capitalized Each Word\" = Table.TransformColumns(#\"Filtered Rows\",{{\"Prefix\", Text.Proper, type text}}),",
+                "    #\"Inserted Text After Delimiter\" = Table.AddColumn(#\"Capitalized Each Word\", \"Text After Delimiter\", each Text.AfterDelimiter([EmailAddress], \"@\"), type text),",
+                "    #\"Extracted Text Before Delimiter\" = Table.TransformColumns(#\"Inserted Text After Delimiter\", {{\"Text After Delimiter\", each Text.BeforeDelimiter(_, \".\"), type text}}),",
+                "    #\"Replaced Value\" = Table.ReplaceValue(#\"Extracted Text Before Delimiter\",\"-\",\" \",Replacer.ReplaceText,{\"Text After Delimiter\"}),",
+                "    #\"Capitalized Each Word1\" = Table.TransformColumns(#\"Replaced Value\",{{\"Text After Delimiter\", Text.Proper, type text}}),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Capitalized Each Word1\",{{\"Text After Delimiter\", \"Domain Name\"}}),",
+                "    #\"Capitalized Each Word2\" = Table.TransformColumns(#\"Renamed Columns\",{{\"FirstName\", Text.Proper, type text}, {\"LastName\", Text.Proper, type text}}),",
+                "    #\"Inserted Merged Column\" = Table.AddColumn(#\"Capitalized Each Word2\", \"Full Name\", each Text.Combine({[FirstName], [LastName]}, \" \"), type text),",
+                "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Inserted Merged Column\",{\"CustomerKey\", \"Prefix\", \"FirstName\", \"LastName\", \"Full Name\", \"BirthDate\", \"MaritalStatus\", \"Gender\", \"EmailAddress\", \"AnnualIncome\", \"TotalChildren\", \"EducationLevel\", \"Occupation\", \"HomeOwner\", \"Domain Name\"})",
                 "in",
-                "    #\"Changed Type\""
+                "    #\"Reordered Columns\""
               ],
               "type": "m"
             }
@@ -812,10 +849,6 @@
       {
         "name": "Sales Data",
         "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
           {
             "name": "PBI_ResultType",
             "value": "Table"
