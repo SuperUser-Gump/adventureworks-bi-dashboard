@@ -630,19 +630,6 @@
             "summarizeBy": "none"
           },
           {
-            "name": "ProductSize",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "c95f6281-03bb-4c84-8796-3ff30c38686c",
-            "sourceColumn": "ProductSize",
-            "summarizeBy": "none"
-          },
-          {
             "name": "ProductStyle",
             "annotations": [
               {
@@ -667,7 +654,7 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "dataType": "double",
+            "dataType": "decimal",
             "lineageTag": "b32c5027-e7e4-41fe-8fb3-a87819152e5d",
             "sourceColumn": "ProductCost",
             "summarizeBy": "sum"
@@ -684,9 +671,40 @@
                 "value": "{\"isGeneralNumber\":true}"
               }
             ],
-            "dataType": "double",
+            "dataType": "decimal",
             "lineageTag": "03604134-dc47-4fa9-ae5e-31f852f27ec9",
             "sourceColumn": "ProductPrice",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "SKU Type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d12c6b47-bcee-424d-8f9c-c690e581c2bc",
+            "sourceColumn": "SKU Type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Discount Price",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "dataType": "decimal",
+            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "lineageTag": "aac41856-1036-4eca-9d34-c852b52d8eca",
+            "sourceColumn": "Discount Price",
             "summarizeBy": "sum"
           }
         ],
@@ -700,9 +718,17 @@
                 "let",
                 "    Source = Csv.Document(File.Contents(\"C:\\Users\\Gump\\Desktop\\AdventureWork Report\\adventureworks-report\\data\\AdventureWorks Product Lookup.csv\"),[Delimiter=\",\", Columns=11, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"ProductKey\", Int64.Type}, {\"ProductSubcategoryKey\", Int64.Type}, {\"ProductSKU\", type text}, {\"ProductName\", type text}, {\"ModelName\", type text}, {\"ProductDescription\", type text}, {\"ProductColor\", type text}, {\"ProductSize\", type text}, {\"ProductStyle\", type text}, {\"ProductCost\", type number}, {\"ProductPrice\", type number}})",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"ProductKey\", Int64.Type}, {\"ProductSubcategoryKey\", Int64.Type}, {\"ProductSKU\", type text}, {\"ProductName\", type text}, {\"ModelName\", type text}, {\"ProductDescription\", type text}, {\"ProductColor\", type text}, {\"ProductSize\", type text}, {\"ProductStyle\", type text}, {\"ProductCost\", type number}, {\"ProductPrice\", type number}}),",
+                "    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Changed Type\",{{\"ProductCost\", Currency.Type}, {\"ProductPrice\", Currency.Type}}),",
+                "    #\"Inserted Text Before Delimiter\" = Table.AddColumn(#\"Changed Type1\", \"Text Before Delimiter\", each Text.BeforeDelimiter([ProductSKU], \"-\", 1), type text),",
+                "    #\"Renamed Columns\" = Table.RenameColumns(#\"Inserted Text Before Delimiter\",{{\"Text Before Delimiter\", \"SKU Type\"}}),",
+                "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Renamed Columns\",{\"ProductKey\", \"ProductSubcategoryKey\", \"ProductSKU\", \"SKU Type\", \"ProductName\", \"ModelName\", \"ProductDescription\", \"ProductColor\", \"ProductSize\", \"ProductStyle\", \"ProductCost\", \"ProductPrice\"}),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Reordered Columns\",{\"ProductSize\"}),",
+                "    #\"Replaced Value\" = Table.ReplaceValue(#\"Removed Columns\",\"0\",\"NA\",Replacer.ReplaceText,{\"ProductStyle\"}),",
+                "    #\"Inserted Multiplication\" = Table.AddColumn(#\"Replaced Value\", \"Multiplication\", each [ProductPrice] * 0.9, Currency.Type),",
+                "    #\"Renamed Columns1\" = Table.RenameColumns(#\"Inserted Multiplication\",{{\"Multiplication\", \"Discount Price\"}})",
                 "in",
-                "    #\"Changed Type\""
+                "    #\"Renamed Columns1\""
               ],
               "type": "m"
             }
