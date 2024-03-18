@@ -16,7 +16,7 @@
       },
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"Calendar Lookup\",\"Customer Lookup\",\"Product Categories Lookup\",\"Product Lookup\",\"Product Subcategories Lookup\",\"Sales Data\",\"Territory Lookup\",\"Returns Data\",\"Sample File\",\"Parameter1\",\"Transform Sample File\",\"Transform File\",\"Errors in Customer Lookup\"]"
+        "value": "[\"Calendar Lookup\",\"Customer Lookup\",\"Product Categories Lookup\",\"Product Lookup\",\"Product Subcategories Lookup\",\"Territory Lookup\",\"Returns Data\",\"Sales Data\",\"Sample File\",\"Parameter1\",\"Transform Sample File\",\"Transform File\"]"
       }
     ],
     "culture": "en-US",
@@ -55,7 +55,7 @@
           "    Navigation1"
         ],
         "kind": "m",
-        "lineageTag": "d63d43bf-3711-4d0e-9282-2522c32a1d20",
+        "lineageTag": "5b3778de-fa68-4267-856e-45de303f9a8d",
         "queryGroup": "Transform File from Sales Data\\Helper Queries"
       },
       {
@@ -68,7 +68,7 @@
         ],
         "expression": "#\"Sample File\" meta [IsParameterQuery=true, BinaryIdentifier=#\"Sample File\", Type=\"Binary\", IsParameterQueryRequired=true]",
         "kind": "m",
-        "lineageTag": "ac256569-ca13-4a0c-b14a-69d96dcabea7",
+        "lineageTag": "b8199f4e-fac3-4a98-968d-9e3c1f45533a",
         "queryGroup": "Transform File from Sales Data\\Helper Queries"
       },
       {
@@ -87,7 +87,7 @@
           "    #\"Promoted Headers\""
         ],
         "kind": "m",
-        "lineageTag": "c8527976-2c5c-40f2-911c-b79de2dc70d3",
+        "lineageTag": "5aa218b4-0c6f-4e6f-8e4e-55b489c0a6f0",
         "queryGroup": "Transform File from Sales Data"
       },
       {
@@ -100,51 +100,18 @@
         ],
         "expression": [
           "let",
-          "    Source = (Parameter1 as binary) => let",
-          "    Source = Csv.Document(Parameter1,[Delimiter=\",\", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
-          "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true])",
-          "in",
-          "    #\"Promoted Headers\"",
+          "    Source = (Parameter1) => let",
+          "        Source = Csv.Document(Parameter1,[Delimiter=\",\", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
+          "        #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true])",
+          "    in",
+          "        #\"Promoted Headers\"",
           "in",
           "    Source"
         ],
         "kind": "m",
-        "lineageTag": "06872b6f-8b38-4ced-9004-56f846c36cba",
+        "lineageTag": "8255a9b6-9627-47ec-bd24-0093591b298d",
         "mAttributes": "[ FunctionQueryBinding = \"{\"\"exemplarFormulaName\"\":\"\"Transform Sample File\"\"}\" ]",
         "queryGroup": "Transform File from Sales Data\\Helper Queries"
-      },
-      {
-        "name": "Errors in Customer Lookup",
-        "annotations": [
-          {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "expression": [
-          "let",
-          "Source = #\"Customer Lookup\",",
-          "  #\"Detected Type Mismatches\" = let",
-          "    tableWithOnlyPrimitiveTypes = Table.SelectColumns(Source, Table.ColumnsOfType(Source, {type nullable number, type nullable text, type nullable logical, type nullable date, type nullable datetime, type nullable datetimezone, type nullable time, type nullable duration})),",
-          "    recordTypeFields = Type.RecordFields(Type.TableRow(Value.Type(tableWithOnlyPrimitiveTypes))),",
-          "    fieldNames = Record.FieldNames(recordTypeFields),",
-          "    fieldTypes = List.Transform(Record.ToList(recordTypeFields), each [Type]),",
-          "    pairs = List.Transform(List.Positions(fieldNames), (i) => {fieldNames{i}, (v) => if v = null or Value.Is(v, fieldTypes{i}) then v else error [Message = \"The type of the value does not match the type of the column.\", Detail = v], fieldTypes{i}})",
-          "in",
-          "    Table.TransformColumns(Source, pairs),",
-          "  #\"Added Index\" = Table.AddIndexColumn(#\"Detected Type Mismatches\", \"Row Number\" ,1),",
-          "  #\"Kept Errors\" = Table.SelectRowsWithErrors(#\"Added Index\", {\"CustomerKey\", \"Prefix\", \"FirstName\", \"LastName\", \"BirthDate\", \"MaritalStatus\", \"Gender\", \"EmailAddress\", \"AnnualIncome\", \"TotalChildren\", \"EducationLevel\", \"Occupation\", \"HomeOwner\"}),",
-          "  #\"Reordered Columns\" = Table.ReorderColumns(#\"Kept Errors\", {\"Row Number\", \"CustomerKey\", \"Prefix\", \"FirstName\", \"LastName\", \"BirthDate\", \"MaritalStatus\", \"Gender\", \"EmailAddress\", \"AnnualIncome\", \"TotalChildren\", \"EducationLevel\", \"Occupation\", \"HomeOwner\"})",
-          "in",
-          "  #\"Reordered Columns\""
-        ],
-        "kind": "m",
-        "lineageTag": "6f54b897-920b-468c-bfde-1a0cc7d47901",
-        "queryGroup": "Query Errors - 17-Mar-24 16:36:39"
       }
     ],
     "queryGroups": [
@@ -165,16 +132,6 @@
           }
         ],
         "folder": "Transform File from Sales Data\\Helper Queries"
-      },
-      {
-        "annotations": [
-          {
-            "name": "PBI_QueryGroupOrder",
-            "value": "2"
-          }
-        ],
-        "description": "Errors in queries that were loaded on 17-Mar-24 16:36:39.",
-        "folder": "Query Errors - 17-Mar-24 16:36:39"
       }
     ],
     "relationships": [
@@ -198,6 +155,20 @@
         "fromTable": "Product Lookup",
         "toColumn": "ProductSubcategoryKey",
         "toTable": "Product Subcategories Lookup"
+      },
+      {
+        "name": "afe9fce6-c9db-46a4-a240-313983c91778",
+        "fromColumn": "CustomerKey",
+        "fromTable": "Sales Data",
+        "toColumn": "CustomerKey",
+        "toTable": "Customer Lookup"
+      },
+      {
+        "name": "19dd30fc-6f48-44c7-8222-b5c55fd1661c",
+        "fromColumn": "ProductKey",
+        "fromTable": "Sales Data",
+        "toColumn": "ProductKey",
+        "toTable": "Product Lookup"
       }
     ],
     "sourceQueryCulture": "en-US",
@@ -409,7 +380,7 @@
             "formatString": "0",
             "lineageTag": "9a6845fa-b3ad-4257-9a93-e93f3ec66f75",
             "sourceColumn": "CustomerKey",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "Prefix",
@@ -519,7 +490,7 @@
             "formatString": "0",
             "lineageTag": "54bf7fef-5bbb-4efd-bcd8-5e89b9fb1fd6",
             "sourceColumn": "AnnualIncome",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "TotalChildren",
@@ -533,7 +504,7 @@
             "formatString": "0",
             "lineageTag": "02ffce00-684d-438c-b82b-bebaae6a1733",
             "sourceColumn": "TotalChildren",
-            "summarizeBy": "sum"
+            "summarizeBy": "none"
           },
           {
             "name": "EducationLevel",
@@ -978,130 +949,6 @@
         ]
       },
       {
-        "name": "Sales Data",
-        "annotations": [
-          {
-            "name": "PBI_ResultType",
-            "value": "Table"
-          }
-        ],
-        "columns": [
-          {
-            "name": "Source.Name",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "a2ba09d0-ab10-4e75-a55e-1c57af64cec9",
-            "sourceColumn": "Source.Name",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Extension",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "15eee48c-33d3-4903-a911-484cd3ab67b7",
-            "sourceColumn": "Extension",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Date accessed",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "a8021547-3855-4d55-9dc8-1c5b87f628ce",
-            "sourceColumn": "Date accessed",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Date modified",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "b2a39579-9f5a-46bb-8b86-537f235768da",
-            "sourceColumn": "Date modified",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Date created",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "dateTime",
-            "formatString": "General Date",
-            "lineageTag": "f1f51029-5ba5-4fde-a982-f9409bc13ec2",
-            "sourceColumn": "Date created",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Folder Path",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "2fdbbd1a-a67f-43b8-9e51-3e9208a67251",
-            "sourceColumn": "Folder Path",
-            "summarizeBy": "none"
-          },
-          {
-            "name": "Transform File",
-            "annotations": [
-              {
-                "name": "SummarizationSetBy",
-                "value": "Automatic"
-              }
-            ],
-            "dataType": "string",
-            "lineageTag": "5fa2d14a-30bd-48c4-9692-e4c3aa475815",
-            "sourceColumn": "Transform File",
-            "summarizeBy": "none"
-          }
-        ],
-        "lineageTag": "9157d5d4-6e6c-4f41-acad-560fc6a013b1",
-        "partitions": [
-          {
-            "name": "Sales Data",
-            "mode": "import",
-            "source": {
-              "expression": [
-                "let",
-                "    Source = Folder.Files(\"C:\\Users\\Gump\\Desktop\\AdventureWork Report\\adventureworks-report\\data\\Sales Data\"),",
-                "    #\"Filtered Hidden Files1\" = Table.SelectRows(Source, each [Attributes]?[Hidden]? <> true),",
-                "    #\"Invoke Custom Function1\" = Table.AddColumn(#\"Filtered Hidden Files1\", \"Transform File\", each #\"Transform File\"([Content])),",
-                "    #\"Renamed Columns1\" = Table.RenameColumns(#\"Invoke Custom Function1\", {\"Name\", \"Source.Name\"})",
-                "in",
-                "    #\"Renamed Columns1\""
-              ],
-              "type": "m"
-            }
-          }
-        ]
-      },
-      {
         "name": "Territory Lookup",
         "annotations": [
           {
@@ -1274,6 +1121,163 @@
                 "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"ReturnDate\", type date}, {\"TerritoryKey\", Int64.Type}, {\"ProductKey\", Int64.Type}, {\"ReturnQuantity\", Int64.Type}})",
                 "in",
                 "    #\"Changed Type\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Sales Data",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "OrderDate",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "5e9ea55a-fee6-4a42-9417-616f5dfa2c95",
+            "sourceColumn": "OrderDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "StockDate",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "fd460b9c-4614-462c-8ce0-9c07388488ca",
+            "sourceColumn": "StockDate",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "OrderNumber",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "113f2e09-a414-4e3b-9d9f-d43284982c4d",
+            "sourceColumn": "OrderNumber",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ProductKey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "eb390c50-522d-4e29-a8c5-0c6af1c18264",
+            "sourceColumn": "ProductKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "CustomerKey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "32b60daa-21e1-4b96-adfd-3cbf6d21e64b",
+            "sourceColumn": "CustomerKey",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "TerritoryKey",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "994cda47-9b25-4b1e-ab4d-62769fe558b2",
+            "sourceColumn": "TerritoryKey",
+            "summarizeBy": "count"
+          },
+          {
+            "name": "OrderLineItem",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "7cdca067-c148-494c-add3-62ba9817b244",
+            "sourceColumn": "OrderLineItem",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "OrderQuantity",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "6451cf88-2dbc-4efa-bd31-133a97653ecd",
+            "sourceColumn": "OrderQuantity",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "0ed16894-9bdc-405d-aaaf-6fbccf265c9b",
+        "partitions": [
+          {
+            "name": "Sales Data",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    Source = Folder.Files(\"C:\\Users\\Gump\\Desktop\\AdventureWork Report\\adventureworks-report\\data\\Sales Data\"),",
+                "    #\"Filtered Hidden Files1\" = Table.SelectRows(Source, each [Attributes]?[Hidden]? <> true),",
+                "    #\"Invoke Custom Function1\" = Table.AddColumn(#\"Filtered Hidden Files1\", \"Transform File\", each #\"Transform File\"([Content])),",
+                "    #\"Renamed Columns1\" = Table.RenameColumns(#\"Invoke Custom Function1\", {\"Name\", \"Source.Name\"}),",
+                "    #\"Removed Other Columns1\" = Table.SelectColumns(#\"Renamed Columns1\", {\"Source.Name\", \"Transform File\"}),",
+                "    #\"Expanded Table Column1\" = Table.ExpandTableColumn(#\"Removed Other Columns1\", \"Transform File\", Table.ColumnNames(#\"Transform File\"(#\"Sample File\"))),",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Expanded Table Column1\",{{\"Source.Name\", type text}, {\"OrderDate\", type date}, {\"StockDate\", type date}, {\"OrderNumber\", type text}, {\"ProductKey\", Int64.Type}, {\"CustomerKey\", Int64.Type}, {\"TerritoryKey\", Int64.Type}, {\"OrderLineItem\", Int64.Type}, {\"OrderQuantity\", Int64.Type}}),",
+                "    #\"Removed Columns\" = Table.RemoveColumns(#\"Changed Type\",{\"Source.Name\"})",
+                "in",
+                "    #\"Removed Columns\""
               ],
               "type": "m"
             }
