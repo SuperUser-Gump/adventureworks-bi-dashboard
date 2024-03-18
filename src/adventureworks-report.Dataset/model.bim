@@ -163,6 +163,7 @@
             ],
             "dataType": "dateTime",
             "formatString": "Long Date",
+            "isKey": true,
             "lineageTag": "2b8dff8c-6776-4391-9cbe-cec80162de9f",
             "sourceColumn": "Date",
             "summarizeBy": "none"
@@ -342,6 +343,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
+            "isKey": true,
             "lineageTag": "9a6845fa-b3ad-4257-9a93-e93f3ec66f75",
             "sourceColumn": "CustomerKey",
             "summarizeBy": "count"
@@ -590,6 +592,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
+            "isDefaultLabel": true,
             "lineageTag": "a55c9191-06ad-4860-b37d-e943513acce8",
             "sourceColumn": "ProductCategoryKey",
             "summarizeBy": "count"
@@ -651,6 +654,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
+            "isKey": true,
             "lineageTag": "8bc3d1a7-3f99-47e9-afa0-fef5a2297770",
             "sourceColumn": "ProductKey",
             "summarizeBy": "count"
@@ -864,6 +868,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
+            "isKey": true,
             "lineageTag": "fc6b2bba-cb09-48ca-bcfe-f0ed1ce0153a",
             "sourceColumn": "ProductSubcategoryKey",
             "summarizeBy": "count"
@@ -939,6 +944,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
+            "isKey": true,
             "lineageTag": "6531b7fb-57f3-4687-ade5-5912501569eb",
             "sourceColumn": "SalesTerritoryKey",
             "summarizeBy": "count"
