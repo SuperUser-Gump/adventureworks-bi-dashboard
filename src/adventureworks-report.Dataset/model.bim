@@ -183,6 +183,20 @@
         "fromTable": "Returns Data",
         "toColumn": "SalesTerritoryKey",
         "toTable": "Territory Lookup"
+      },
+      {
+        "name": "359b0124-b99f-4349-8760-a7dd211e90ed",
+        "fromColumn": "ProductSubcategoryKey",
+        "fromTable": "Product Lookup",
+        "toColumn": "ProductSubcategoryKey",
+        "toTable": "Product Subcategories Lookup"
+      },
+      {
+        "name": "5a180e15-a546-4e04-9ee2-05a58d27de4a",
+        "fromColumn": "ProductCategoryKey",
+        "fromTable": "Product Subcategories Lookup",
+        "toColumn": "ProductCategoryKey",
+        "toTable": "Product Categories Lookup"
       }
     ],
     "sourceQueryCulture": "en-US",
@@ -646,7 +660,7 @@
             "isDefaultLabel": true,
             "lineageTag": "a55c9191-06ad-4860-b37d-e943513acce8",
             "sourceColumn": "ProductCategoryKey",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "CategoryName",
@@ -722,7 +736,7 @@
             "formatString": "0",
             "lineageTag": "23baef08-9513-4c39-85e1-fef13c15d132",
             "sourceColumn": "ProductSubcategoryKey",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "ProductSKU",
@@ -922,7 +936,7 @@
             "isKey": true,
             "lineageTag": "fc6b2bba-cb09-48ca-bcfe-f0ed1ce0153a",
             "sourceColumn": "ProductSubcategoryKey",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "SubcategoryName",
@@ -949,7 +963,7 @@
             "formatString": "0",
             "lineageTag": "2a5290a3-93e4-484a-bdfc-a62921fd4e12",
             "sourceColumn": "ProductCategoryKey",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           }
         ],
         "excludeFromModelRefresh": true,

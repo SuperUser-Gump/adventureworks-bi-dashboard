@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
+        "x": 435.50321624755861,
         "y": 0
       },
       "nodes": [
@@ -36,8 +36,8 @@
         },
         {
           "location": {
-            "x": 584.992,
-            "y": 0
+            "x": 1174.625,
+            "y": 231.59399999999997
           },
           "nodeIndex": "Product Categories Lookup",
           "nodeLineageTag": "920be15c-9ca5-4b0b-af2c-63b19f490915",
@@ -62,7 +62,7 @@
         },
         {
           "location": {
-            "x": 1162.014255104609,
+            "x": 1176.6552551046091,
             "y": 0
           },
           "nodeIndex": "Product Subcategories Lookup",
