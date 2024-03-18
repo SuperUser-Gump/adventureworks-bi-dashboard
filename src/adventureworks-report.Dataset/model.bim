@@ -232,6 +232,127 @@
             "lineageTag": "2b8dff8c-6776-4391-9cbe-cec80162de9f",
             "sourceColumn": "Date",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Day Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "8eff3f5d-2e17-4c5d-9f9a-35052c185ce1",
+            "sourceColumn": "Day Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Start of Week",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "76717154-5bb9-446c-bf5c-3507b2f97917",
+            "sourceColumn": "Start of Week",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Start of Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "48bbd420-b7a7-4b83-a37b-6bb0ac306455",
+            "sourceColumn": "Start of Month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month Name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4fe86069-969d-4e31-ba11-db3944674ed2",
+            "sourceColumn": "Month Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "c5cce407-a108-46f4-8f07-3ab78e40c13e",
+            "sourceColumn": "Month",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Start of Quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "ba4d1cb6-86dd-4922-a854-a96cc3e7db7d",
+            "sourceColumn": "Start of Quarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Start of Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Long Date",
+            "lineageTag": "795ce4ef-cfdd-405c-8ab7-f5d40bb26100",
+            "sourceColumn": "Start of Year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "c44ec588-7ec4-4290-ba7c-9822438b7c1b",
+            "sourceColumn": "Year",
+            "summarizeBy": "sum"
           }
         ],
         "lineageTag": "110eb0f6-2fcf-4a18-91d2-9f9bd578a313",
@@ -244,9 +365,19 @@
                 "let",
                 "    Source = Csv.Document(File.Contents(\"C:\\Users\\Gump\\Desktop\\AdventureWork Report\\adventureworks-report\\data\\AdventureWorks Calendar Lookup.csv\"),[Delimiter=\",\", Columns=1, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
-                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Date\", type date}})",
+                "    #\"Changed Type\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"Date\", type date}}),",
+                "    #\"Inserted Day Name\" = Table.AddColumn(#\"Changed Type\", \"Day Name\", each Date.DayOfWeekName([Date]), type text),",
+                "    #\"Inserted Start of Week\" = Table.AddColumn(#\"Inserted Day Name\", \"Start of Week\", each Date.StartOfWeek([Date],1)),",
+                "    #\"Inserted Start of Month\" = Table.AddColumn(#\"Inserted Start of Week\", \"Start of Month\", each Date.StartOfMonth([Date]), type date),",
+                "    #\"Inserted Start of Quarter\" = Table.AddColumn(#\"Inserted Start of Month\", \"Start of Quarter\", each Date.StartOfQuarter([Date]), type date),",
+                "    #\"Inserted Month Name\" = Table.AddColumn(#\"Inserted Start of Quarter\", \"Month Name\", each Date.MonthName([Date]), type text),",
+                "    #\"Reordered Columns\" = Table.ReorderColumns(#\"Inserted Month Name\",{\"Date\", \"Day Name\", \"Start of Week\", \"Start of Month\", \"Month Name\", \"Start of Quarter\"}),",
+                "    #\"Inserted Month\" = Table.AddColumn(#\"Reordered Columns\", \"Month\", each Date.Month([Date]), Int64.Type),",
+                "    #\"Reordered Columns1\" = Table.ReorderColumns(#\"Inserted Month\",{\"Date\", \"Day Name\", \"Start of Week\", \"Start of Month\", \"Month Name\", \"Month\", \"Start of Quarter\"}),",
+                "    #\"Inserted Start of Year\" = Table.AddColumn(#\"Reordered Columns1\", \"Start of Year\", each Date.StartOfYear([Date]), type date),",
+                "    #\"Inserted Year\" = Table.AddColumn(#\"Inserted Start of Year\", \"Year\", each Date.Year([Date]), Int64.Type)",
                 "in",
-                "    #\"Changed Type\""
+                "    #\"Inserted Year\""
               ],
               "type": "m"
             }
