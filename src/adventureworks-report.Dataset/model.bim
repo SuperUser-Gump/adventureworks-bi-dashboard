@@ -162,6 +162,27 @@
         "fromTable": "Sales Data",
         "toColumn": "CustomerKey",
         "toTable": "Customer Lookup"
+      },
+      {
+        "name": "0c114e97-5d6e-46e3-b726-d60aaac4c196",
+        "fromColumn": "ProductKey",
+        "fromTable": "Returns Data",
+        "toColumn": "ProductKey",
+        "toTable": "Product Lookup"
+      },
+      {
+        "name": "6e766b67-3c86-444c-8bc5-5f9d5010015f",
+        "fromColumn": "ReturnDate",
+        "fromTable": "Returns Data",
+        "toColumn": "Date",
+        "toTable": "Calendar Lookup"
+      },
+      {
+        "name": "0a51faea-5b2f-4464-89be-f1793bf31067",
+        "fromColumn": "TerritoryKey",
+        "fromTable": "Returns Data",
+        "toColumn": "SalesTerritoryKey",
+        "toTable": "Territory Lookup"
       }
     ],
     "sourceQueryCulture": "en-US",
@@ -267,7 +288,7 @@
             "formatString": "0",
             "lineageTag": "c5cce407-a108-46f4-8f07-3ab78e40c13e",
             "sourceColumn": "Month",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "Start of Quarter",
@@ -317,7 +338,7 @@
             "formatString": "0",
             "lineageTag": "c44ec588-7ec4-4290-ba7c-9822438b7c1b",
             "sourceColumn": "Year",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           }
         ],
         "excludeFromModelRefresh": true,
@@ -701,7 +722,7 @@
             "formatString": "0",
             "lineageTag": "23baef08-9513-4c39-85e1-fef13c15d132",
             "sourceColumn": "ProductSubcategoryKey",
-            "summarizeBy": "none"
+            "summarizeBy": "count"
           },
           {
             "name": "ProductSKU",
@@ -796,7 +817,7 @@
             "dataType": "decimal",
             "lineageTag": "b32c5027-e7e4-41fe-8fb3-a87819152e5d",
             "sourceColumn": "ProductCost",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "ProductPrice",
@@ -813,7 +834,7 @@
             "dataType": "decimal",
             "lineageTag": "03604134-dc47-4fa9-ae5e-31f852f27ec9",
             "sourceColumn": "ProductPrice",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "SKU Type",
@@ -844,7 +865,7 @@
             "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
             "lineageTag": "aac41856-1036-4eca-9d34-c852b52d8eca",
             "sourceColumn": "Discount Price",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           }
         ],
         "excludeFromModelRefresh": true,
@@ -1082,7 +1103,7 @@
             "formatString": "0",
             "lineageTag": "14615b36-6d31-49e3-81b1-1fb6ade7090f",
             "sourceColumn": "TerritoryKey",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "ProductKey",
@@ -1096,7 +1117,7 @@
             "formatString": "0",
             "lineageTag": "fdc92ab4-13a5-4267-8246-9fa5daf5840c",
             "sourceColumn": "ProductKey",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "ReturnQuantity",
