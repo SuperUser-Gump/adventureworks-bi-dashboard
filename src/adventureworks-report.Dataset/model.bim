@@ -134,43 +134,6 @@
         "folder": "Transform File from Sales Data\\Helper Queries"
       }
     ],
-    "relationships": [
-      {
-        "name": "8adf1dff-cb87-4370-af2b-06325a0a16c9",
-        "fromColumn": "ProductCategoryKey",
-        "fromTable": "Product Subcategories Lookup",
-        "toColumn": "ProductCategoryKey",
-        "toTable": "Product Categories Lookup"
-      },
-      {
-        "name": "4ab669e0-e6b1-4a62-bfcc-2b94321de939",
-        "fromColumn": "ProductKey",
-        "fromTable": "Returns Data",
-        "toColumn": "ProductKey",
-        "toTable": "Product Lookup"
-      },
-      {
-        "name": "1aa77339-8d64-465f-a9ce-55fda028f897",
-        "fromColumn": "ProductSubcategoryKey",
-        "fromTable": "Product Lookup",
-        "toColumn": "ProductSubcategoryKey",
-        "toTable": "Product Subcategories Lookup"
-      },
-      {
-        "name": "afe9fce6-c9db-46a4-a240-313983c91778",
-        "fromColumn": "CustomerKey",
-        "fromTable": "Sales Data",
-        "toColumn": "CustomerKey",
-        "toTable": "Customer Lookup"
-      },
-      {
-        "name": "19dd30fc-6f48-44c7-8222-b5c55fd1661c",
-        "fromColumn": "ProductKey",
-        "fromTable": "Sales Data",
-        "toColumn": "ProductKey",
-        "toTable": "Product Lookup"
-      }
-    ],
     "sourceQueryCulture": "en-US",
     "tables": [
       {
@@ -381,7 +344,7 @@
             "formatString": "0",
             "lineageTag": "9a6845fa-b3ad-4257-9a93-e93f3ec66f75",
             "sourceColumn": "CustomerKey",
-            "summarizeBy": "none"
+            "summarizeBy": "count"
           },
           {
             "name": "Prefix",
@@ -491,7 +454,7 @@
             "formatString": "0",
             "lineageTag": "54bf7fef-5bbb-4efd-bcd8-5e89b9fb1fd6",
             "sourceColumn": "AnnualIncome",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "TotalChildren",
@@ -505,7 +468,7 @@
             "formatString": "0",
             "lineageTag": "02ffce00-684d-438c-b82b-bebaae6a1733",
             "sourceColumn": "TotalChildren",
-            "summarizeBy": "none"
+            "summarizeBy": "sum"
           },
           {
             "name": "EducationLevel",
@@ -629,7 +592,7 @@
             "formatString": "0",
             "lineageTag": "a55c9191-06ad-4860-b37d-e943513acce8",
             "sourceColumn": "ProductCategoryKey",
-            "summarizeBy": "none"
+            "summarizeBy": "count"
           },
           {
             "name": "CategoryName",
@@ -690,7 +653,7 @@
             "formatString": "0",
             "lineageTag": "8bc3d1a7-3f99-47e9-afa0-fef5a2297770",
             "sourceColumn": "ProductKey",
-            "summarizeBy": "none"
+            "summarizeBy": "count"
           },
           {
             "name": "ProductSubcategoryKey",
@@ -704,7 +667,7 @@
             "formatString": "0",
             "lineageTag": "23baef08-9513-4c39-85e1-fef13c15d132",
             "sourceColumn": "ProductSubcategoryKey",
-            "summarizeBy": "none"
+            "summarizeBy": "count"
           },
           {
             "name": "ProductSKU",
@@ -903,7 +866,7 @@
             "formatString": "0",
             "lineageTag": "fc6b2bba-cb09-48ca-bcfe-f0ed1ce0153a",
             "sourceColumn": "ProductSubcategoryKey",
-            "summarizeBy": "none"
+            "summarizeBy": "count"
           },
           {
             "name": "SubcategoryName",
@@ -930,7 +893,7 @@
             "formatString": "0",
             "lineageTag": "2a5290a3-93e4-484a-bdfc-a62921fd4e12",
             "sourceColumn": "ProductCategoryKey",
-            "summarizeBy": "none"
+            "summarizeBy": "count"
           }
         ],
         "excludeFromModelRefresh": true,
@@ -1097,7 +1060,7 @@
             "formatString": "0",
             "lineageTag": "fdc92ab4-13a5-4267-8246-9fa5daf5840c",
             "sourceColumn": "ProductKey",
-            "summarizeBy": "none"
+            "summarizeBy": "count"
           },
           {
             "name": "ReturnQuantity",
@@ -1208,7 +1171,7 @@
             "formatString": "0",
             "lineageTag": "eb390c50-522d-4e29-a8c5-0c6af1c18264",
             "sourceColumn": "ProductKey",
-            "summarizeBy": "none"
+            "summarizeBy": "count"
           },
           {
             "name": "CustomerKey",
@@ -1222,7 +1185,7 @@
             "formatString": "0",
             "lineageTag": "32b60daa-21e1-4b96-adfd-3cbf6d21e64b",
             "sourceColumn": "CustomerKey",
-            "summarizeBy": "none"
+            "summarizeBy": "count"
           },
           {
             "name": "TerritoryKey",
