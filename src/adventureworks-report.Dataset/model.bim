@@ -1476,6 +1476,23 @@
             ],
             "formatString": "#,0",
             "lineageTag": "428130ed-cfd7-4d17-972d-2a38ff447483"
+          },
+          {
+            "name": "Average Retail Price",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "AVERAGE(",
+              "    'Product Lookup'[ProductPrice]",
+              ")"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "79f789e2-1941-4797-8608-416362a65fc1"
           }
         ],
         "partitions": [
