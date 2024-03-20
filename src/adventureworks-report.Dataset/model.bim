@@ -1,5 +1,5 @@
 {
-  "compatibilityLevel": 1550,
+  "compatibilityLevel": 1567,
   "model": {
     "annotations": [
       {
@@ -100,11 +100,11 @@
         ],
         "expression": [
           "let",
-          "    Source = (Parameter1) => let",
-          "        Source = Csv.Document(Parameter1,[Delimiter=\",\", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
-          "        #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true])",
-          "    in",
-          "        #\"Promoted Headers\"",
+          "    Source = (Parameter1 as binary) => let",
+          "    Source = Csv.Document(Parameter1,[Delimiter=\",\", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
+          "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true])",
+          "in",
+          "    #\"Promoted Headers\"",
           "in",
           "    Source"
         ],
@@ -1172,10 +1172,6 @@
         "name": "Sales Data",
         "annotations": [
           {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
             "name": "PBI_ResultType",
             "value": "Table"
           }
@@ -1193,8 +1189,14 @@
                 "value": "Date"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "dateTime",
             "formatString": "Long Date",
+            "isHidden": true,
             "lineageTag": "5e9ea55a-fee6-4a42-9417-616f5dfa2c95",
             "sourceColumn": "OrderDate",
             "summarizeBy": "none"
@@ -1211,8 +1213,14 @@
                 "value": "Date"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "dateTime",
             "formatString": "Long Date",
+            "isHidden": true,
             "lineageTag": "fd460b9c-4614-462c-8ce0-9c07388488ca",
             "sourceColumn": "StockDate",
             "summarizeBy": "none"
@@ -1238,8 +1246,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "eb390c50-522d-4e29-a8c5-0c6af1c18264",
             "sourceColumn": "ProductKey",
             "summarizeBy": "none"
@@ -1252,8 +1266,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "32b60daa-21e1-4b96-adfd-3cbf6d21e64b",
             "sourceColumn": "CustomerKey",
             "summarizeBy": "none"
@@ -1266,8 +1286,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "994cda47-9b25-4b1e-ab4d-62769fe558b2",
             "sourceColumn": "TerritoryKey",
             "summarizeBy": "none"
