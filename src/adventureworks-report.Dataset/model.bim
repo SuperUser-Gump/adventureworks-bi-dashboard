@@ -1526,6 +1526,19 @@
             ],
             "formatString": "#,0",
             "lineageTag": "b8e4d506-5551-4a04-81ac-141405dd5aa4"
+          },
+          {
+            "name": "Return Rate",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [Quantity Returned],",
+              "    [Quantity Sold],",
+              "    \"No Sales\"",
+              ")"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "2004780a-45ed-4d31-ab06-8f2603f6b34c"
           }
         ],
         "partitions": [
