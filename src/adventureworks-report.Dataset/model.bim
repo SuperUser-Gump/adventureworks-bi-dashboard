@@ -1127,7 +1127,7 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
             "isHidden": true,
             "lineageTag": "ff603893-9bac-4dd4-a1b1-44fc1e786ae5",
             "sourceColumn": "ReturnDate",
