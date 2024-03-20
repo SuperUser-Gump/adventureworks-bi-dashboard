@@ -227,7 +227,7 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
             "isKey": true,
             "lineageTag": "2b8dff8c-6776-4391-9cbe-cec80162de9f",
             "sourceColumn": "Date",
@@ -252,9 +252,19 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
               }
             ],
-            "dataType": "string",
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Date",
             "lineageTag": "76717154-5bb9-446c-bf5c-3507b2f97917",
             "sourceColumn": "Start of Week",
             "summarizeBy": "none"
@@ -272,7 +282,7 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
             "lineageTag": "48bbd420-b7a7-4b83-a37b-6bb0ac306455",
             "sourceColumn": "Start of Month",
             "summarizeBy": "none"
@@ -317,7 +327,7 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
             "lineageTag": "ba4d1cb6-86dd-4922-a854-a96cc3e7db7d",
             "sourceColumn": "Start of Quarter",
             "summarizeBy": "none"
@@ -335,7 +345,7 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
             "lineageTag": "795ce4ef-cfdd-405c-8ab7-f5d40bb26100",
             "sourceColumn": "Start of Year",
             "summarizeBy": "none"
