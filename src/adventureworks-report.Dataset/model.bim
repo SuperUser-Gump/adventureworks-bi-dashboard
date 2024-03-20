@@ -1493,6 +1493,17 @@
             ],
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "79f789e2-1941-4797-8608-416362a65fc1"
+          },
+          {
+            "name": "Total Returns",
+            "expression": [
+              "",
+              "COUNT(",
+              "    'Returns Data'[ReturnQuantity]",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "db510c52-a2a9-4fc0-9bb6-29b236b86003"
           }
         ],
         "partitions": [
