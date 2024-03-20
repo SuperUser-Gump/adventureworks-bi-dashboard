@@ -688,6 +688,27 @@
             "lineageTag": "98a4d2c9-ef05-4868-90ff-38d84924b609",
             "summarizeBy": "none",
             "type": "calculated"
+          },
+          {
+            "name": "Income Level",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "IF('Customer Lookup'[AnnualIncome] >= 150000, \"Very High\",",
+              "IF('Customer Lookup'[AnnualIncome] >= 100000, \"High\",",
+              "IF('Customer Lookup'[AnnualIncome] >= 50000, \"Average\",",
+              "\"Low\")))"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "fa73f996-791d-44a4-a28d-e62b4bc67b0c",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "excludeFromModelRefresh": true,
