@@ -1073,6 +1073,32 @@
           }
         ],
         "excludeFromModelRefresh": true,
+        "hierarchies": [
+          {
+            "name": "Territory Hierarchy",
+            "levels": [
+              {
+                "name": "Continent",
+                "column": "Continent",
+                "lineageTag": "5e124d49-9d99-4671-8fca-90852aecf0f3",
+                "ordinal": 0
+              },
+              {
+                "name": "Country",
+                "column": "Country",
+                "lineageTag": "396cac3b-22ea-40f8-a185-b1e9790ce07c",
+                "ordinal": 1
+              },
+              {
+                "name": "Region",
+                "column": "Region",
+                "lineageTag": "15c72cf4-23d5-442d-8ec6-f49adbaa3d44",
+                "ordinal": 2
+              }
+            ],
+            "lineageTag": "4a57c835-413b-4c2b-bb3a-c7937a9511f5"
+          }
+        ],
         "lineageTag": "4bc4dd42-ed6e-42e3-82ee-bc22c5310f82",
         "partitions": [
           {
