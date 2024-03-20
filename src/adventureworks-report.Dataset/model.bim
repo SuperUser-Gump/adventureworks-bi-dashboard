@@ -665,6 +665,29 @@
             "lineageTag": "4a20c649-be10-49bf-b81a-b9692c131055",
             "summarizeBy": "none",
             "type": "calculated"
+          },
+          {
+            "name": "Customer Priority",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "IF(",
+              "    'Customer Lookup'[Is Parent ?]=\"Yes\" && ",
+              "    'Customer Lookup'[AnnualIncome] > 100000,",
+              "    \"Priority\",",
+              "    \"Standard\"",
+              ")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "98a4d2c9-ef05-4868-90ff-38d84924b609",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "excludeFromModelRefresh": true,
