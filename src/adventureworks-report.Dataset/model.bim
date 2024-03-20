@@ -1515,6 +1515,17 @@
             ],
             "formatString": "#,0",
             "lineageTag": "9ff0f616-9bc3-4451-ad69-d970d5f07666"
+          },
+          {
+            "name": "Total Customers",
+            "expression": [
+              "",
+              "DISTINCTCOUNT(",
+              "    'Sales Data'[CustomerKey]",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "b8e4d506-5551-4a04-81ac-141405dd5aa4"
           }
         ],
         "partitions": [
