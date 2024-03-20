@@ -386,6 +386,42 @@
             "lineageTag": "7cba3333-a38c-4c44-b394-5ae2ca47ed26",
             "summarizeBy": "none",
             "type": "calculated"
+          },
+          {
+            "name": "Day of Week",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "683ebb17-580b-44ab-a7df-9d7285220b65",
+            "sourceColumn": "Day of Week",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Weekend",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "IF(",
+              "    'Calendar Lookup'[Day of Week] IN {6,7},",
+              "    \"Weekend\",",
+              "    \"Weekday\"",
+              ")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "b40b363f-5ace-4af8-a9c0-99914fcf7f2b",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "excludeFromModelRefresh": true,
@@ -441,9 +477,11 @@
                 "    #\"Inserted Month\" = Table.AddColumn(#\"Reordered Columns\", \"Month\", each Date.Month([Date]), Int64.Type),",
                 "    #\"Reordered Columns1\" = Table.ReorderColumns(#\"Inserted Month\",{\"Date\", \"Day Name\", \"Start of Week\", \"Start of Month\", \"Month Name\", \"Month\", \"Start of Quarter\"}),",
                 "    #\"Inserted Start of Year\" = Table.AddColumn(#\"Reordered Columns1\", \"Start of Year\", each Date.StartOfYear([Date]), type date),",
-                "    #\"Inserted Year\" = Table.AddColumn(#\"Inserted Start of Year\", \"Year\", each Date.Year([Date]), Int64.Type)",
+                "    #\"Inserted Year\" = Table.AddColumn(#\"Inserted Start of Year\", \"Year\", each Date.Year([Date]), Int64.Type),",
+                "    #\"Inserted Day of Week\" = Table.AddColumn(#\"Inserted Year\", \"Day of Week\", each Date.DayOfWeek([Date]), Int64.Type),",
+                "    #\"Reordered Columns2\" = Table.ReorderColumns(#\"Inserted Day of Week\",{\"Date\", \"Day Name\", \"Day of Week\", \"Start of Week\", \"Start of Month\", \"Month Name\", \"Month\", \"Start of Quarter\", \"Start of Year\", \"Year\"})",
                 "in",
-                "    #\"Inserted Year\""
+                "    #\"Reordered Columns2\""
               ],
               "type": "m"
             }
