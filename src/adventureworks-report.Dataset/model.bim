@@ -363,6 +363,29 @@
             "lineageTag": "c44ec588-7ec4-4290-ba7c-9822438b7c1b",
             "sourceColumn": "Year",
             "summarizeBy": "sum"
+          },
+          {
+            "name": "Month Short",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "UPPER(",
+              "    LEFT(",
+              "    'Calendar Lookup'[Month Name],",
+              "    3",
+              "    )",
+              ")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "7cba3333-a38c-4c44-b394-5ae2ca47ed26",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "excludeFromModelRefresh": true,
