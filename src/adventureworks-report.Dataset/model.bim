@@ -1681,6 +1681,29 @@
             "lineageTag": "260e07a5-9618-4f48-89ff-05eaf50f919b",
             "summarizeBy": "sum",
             "type": "calculated"
+          },
+          {
+            "name": "Revenue",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "dataType": "decimal",
+            "expression": [
+              "",
+              "'Sales Data'[Retail Price] * 'Sales Data'[OrderQuantity]"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "isDataTypeInferred": true,
+            "lineageTag": "996000fd-db4e-4457-a9c9-2a896d0cf861",
+            "summarizeBy": "sum",
+            "type": "calculated"
           }
         ],
         "lineageTag": "0ed16894-9bdc-405d-aaaf-6fbccf265c9b",
