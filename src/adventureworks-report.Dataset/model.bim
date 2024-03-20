@@ -366,6 +366,38 @@
           }
         ],
         "excludeFromModelRefresh": true,
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "levels": [
+              {
+                "name": "Start of Year",
+                "column": "Start of Year",
+                "lineageTag": "5c255f04-ad4d-4f09-9582-e099c82f779d",
+                "ordinal": 0
+              },
+              {
+                "name": "Start of Month",
+                "column": "Start of Month",
+                "lineageTag": "6e2d17d2-6ca9-401a-abf3-84486e4f477a",
+                "ordinal": 1
+              },
+              {
+                "name": "Start of Week",
+                "column": "Start of Week",
+                "lineageTag": "d5a39c80-8a17-4b2c-b8e9-ca0f91b53ebf",
+                "ordinal": 2
+              },
+              {
+                "name": "Date",
+                "column": "Date",
+                "lineageTag": "7aadd2ee-0fc0-4eca-bb34-56a9fb77652c",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "5db8ec55-d991-4a79-b7c3-87fe585bfd22"
+          }
+        ],
         "lineageTag": "110eb0f6-2fcf-4a18-91d2-9f9bd578a313",
         "partitions": [
           {
