@@ -813,6 +813,25 @@
             "lineageTag": "837ca8e6-8fc0-45fb-8fca-df70769b7688",
             "summarizeBy": "none",
             "type": "calculated"
+          },
+          {
+            "name": "Birth Year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "expression": [
+              "",
+              "YEAR('Customer Lookup'[BirthDate])"
+            ],
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "lineageTag": "3d565432-c8ef-484c-9ee2-3fcc56d50bcb",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "excludeFromModelRefresh": true,
