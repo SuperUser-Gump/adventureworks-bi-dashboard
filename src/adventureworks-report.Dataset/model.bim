@@ -1,5 +1,5 @@
 {
-  "compatibilityLevel": 1550,
+  "compatibilityLevel": 1567,
   "model": {
     "annotations": [
       {
@@ -100,11 +100,11 @@
         ],
         "expression": [
           "let",
-          "    Source = (Parameter1) => let",
-          "        Source = Csv.Document(Parameter1,[Delimiter=\",\", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
-          "        #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true])",
-          "    in",
-          "        #\"Promoted Headers\"",
+          "    Source = (Parameter1 as binary) => let",
+          "    Source = Csv.Document(Parameter1,[Delimiter=\",\", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),",
+          "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true])",
+          "in",
+          "    #\"Promoted Headers\"",
           "in",
           "    Source"
         ],
@@ -136,39 +136,67 @@
     ],
     "relationships": [
       {
-        "name": "8adf1dff-cb87-4370-af2b-06325a0a16c9",
-        "fromColumn": "ProductCategoryKey",
-        "fromTable": "Product Subcategories Lookup",
-        "toColumn": "ProductCategoryKey",
-        "toTable": "Product Categories Lookup"
+        "name": "91ef3f74-f562-414f-a690-09b8eddf63e7",
+        "fromColumn": "TerritoryKey",
+        "fromTable": "Sales Data",
+        "toColumn": "SalesTerritoryKey",
+        "toTable": "Territory Lookup"
       },
       {
-        "name": "4ab669e0-e6b1-4a62-bfcc-2b94321de939",
+        "name": "a975ea4b-8381-4489-9665-7f42ef9c0cae",
+        "fromColumn": "OrderDate",
+        "fromTable": "Sales Data",
+        "toColumn": "Date",
+        "toTable": "Calendar Lookup"
+      },
+      {
+        "name": "10729cd5-82bd-4837-82d4-345304f7db76",
         "fromColumn": "ProductKey",
-        "fromTable": "Returns Data",
+        "fromTable": "Sales Data",
         "toColumn": "ProductKey",
         "toTable": "Product Lookup"
       },
       {
-        "name": "1aa77339-8d64-465f-a9ce-55fda028f897",
-        "fromColumn": "ProductSubcategoryKey",
-        "fromTable": "Product Lookup",
-        "toColumn": "ProductSubcategoryKey",
-        "toTable": "Product Subcategories Lookup"
-      },
-      {
-        "name": "afe9fce6-c9db-46a4-a240-313983c91778",
+        "name": "dc955ec4-baaa-40f0-8529-b950f8493f84",
         "fromColumn": "CustomerKey",
         "fromTable": "Sales Data",
         "toColumn": "CustomerKey",
         "toTable": "Customer Lookup"
       },
       {
-        "name": "19dd30fc-6f48-44c7-8222-b5c55fd1661c",
+        "name": "0c114e97-5d6e-46e3-b726-d60aaac4c196",
         "fromColumn": "ProductKey",
-        "fromTable": "Sales Data",
+        "fromTable": "Returns Data",
         "toColumn": "ProductKey",
         "toTable": "Product Lookup"
+      },
+      {
+        "name": "6e766b67-3c86-444c-8bc5-5f9d5010015f",
+        "fromColumn": "ReturnDate",
+        "fromTable": "Returns Data",
+        "toColumn": "Date",
+        "toTable": "Calendar Lookup"
+      },
+      {
+        "name": "0a51faea-5b2f-4464-89be-f1793bf31067",
+        "fromColumn": "TerritoryKey",
+        "fromTable": "Returns Data",
+        "toColumn": "SalesTerritoryKey",
+        "toTable": "Territory Lookup"
+      },
+      {
+        "name": "359b0124-b99f-4349-8760-a7dd211e90ed",
+        "fromColumn": "ProductSubcategoryKey",
+        "fromTable": "Product Lookup",
+        "toColumn": "ProductSubcategoryKey",
+        "toTable": "Product Subcategories Lookup"
+      },
+      {
+        "name": "5a180e15-a546-4e04-9ee2-05a58d27de4a",
+        "fromColumn": "ProductCategoryKey",
+        "fromTable": "Product Subcategories Lookup",
+        "toColumn": "ProductCategoryKey",
+        "toTable": "Product Categories Lookup"
       }
     ],
     "sourceQueryCulture": "en-US",
@@ -199,7 +227,8 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
+            "isKey": true,
             "lineageTag": "2b8dff8c-6776-4391-9cbe-cec80162de9f",
             "sourceColumn": "Date",
             "summarizeBy": "none"
@@ -223,9 +252,19 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
               }
             ],
-            "dataType": "string",
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Date",
             "lineageTag": "76717154-5bb9-446c-bf5c-3507b2f97917",
             "sourceColumn": "Start of Week",
             "summarizeBy": "none"
@@ -243,7 +282,7 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
             "lineageTag": "48bbd420-b7a7-4b83-a37b-6bb0ac306455",
             "sourceColumn": "Start of Month",
             "summarizeBy": "none"
@@ -288,7 +327,7 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
             "lineageTag": "ba4d1cb6-86dd-4922-a854-a96cc3e7db7d",
             "sourceColumn": "Start of Quarter",
             "summarizeBy": "none"
@@ -306,7 +345,7 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
             "lineageTag": "795ce4ef-cfdd-405c-8ab7-f5d40bb26100",
             "sourceColumn": "Start of Year",
             "summarizeBy": "none"
@@ -327,6 +366,38 @@
           }
         ],
         "excludeFromModelRefresh": true,
+        "hierarchies": [
+          {
+            "name": "Date Hierarchy",
+            "levels": [
+              {
+                "name": "Start of Year",
+                "column": "Start of Year",
+                "lineageTag": "5c255f04-ad4d-4f09-9582-e099c82f779d",
+                "ordinal": 0
+              },
+              {
+                "name": "Start of Month",
+                "column": "Start of Month",
+                "lineageTag": "6e2d17d2-6ca9-401a-abf3-84486e4f477a",
+                "ordinal": 1
+              },
+              {
+                "name": "Start of Week",
+                "column": "Start of Week",
+                "lineageTag": "d5a39c80-8a17-4b2c-b8e9-ca0f91b53ebf",
+                "ordinal": 2
+              },
+              {
+                "name": "Date",
+                "column": "Date",
+                "lineageTag": "7aadd2ee-0fc0-4eca-bb34-56a9fb77652c",
+                "ordinal": 3
+              }
+            ],
+            "lineageTag": "5db8ec55-d991-4a79-b7c3-87fe585bfd22"
+          }
+        ],
         "lineageTag": "110eb0f6-2fcf-4a18-91d2-9f9bd578a313",
         "partitions": [
           {
@@ -379,6 +450,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
+            "isKey": true,
             "lineageTag": "9a6845fa-b3ad-4257-9a93-e93f3ec66f75",
             "sourceColumn": "CustomerKey",
             "summarizeBy": "none"
@@ -627,6 +699,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
+            "isDefaultLabel": true,
             "lineageTag": "a55c9191-06ad-4860-b37d-e943513acce8",
             "sourceColumn": "ProductCategoryKey",
             "summarizeBy": "none"
@@ -688,6 +761,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
+            "isKey": true,
             "lineageTag": "8bc3d1a7-3f99-47e9-afa0-fef5a2297770",
             "sourceColumn": "ProductKey",
             "summarizeBy": "none"
@@ -700,8 +774,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "23baef08-9513-4c39-85e1-fef13c15d132",
             "sourceColumn": "ProductSubcategoryKey",
             "summarizeBy": "none"
@@ -790,13 +870,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "decimal",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "b32c5027-e7e4-41fe-8fb3-a87819152e5d",
             "sourceColumn": "ProductCost",
             "summarizeBy": "sum"
@@ -807,13 +884,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "decimal",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "03604134-dc47-4fa9-ae5e-31f852f27ec9",
             "sourceColumn": "ProductPrice",
             "summarizeBy": "sum"
@@ -844,7 +918,7 @@
               }
             ],
             "dataType": "decimal",
-            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "aac41856-1036-4eca-9d34-c852b52d8eca",
             "sourceColumn": "Discount Price",
             "summarizeBy": "sum"
@@ -901,6 +975,7 @@
             ],
             "dataType": "int64",
             "formatString": "0",
+            "isKey": true,
             "lineageTag": "fc6b2bba-cb09-48ca-bcfe-f0ed1ce0153a",
             "sourceColumn": "ProductSubcategoryKey",
             "summarizeBy": "none"
@@ -926,8 +1001,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "2a5290a3-93e4-484a-bdfc-a62921fd4e12",
             "sourceColumn": "ProductCategoryKey",
             "summarizeBy": "none"
@@ -976,9 +1057,10 @@
             ],
             "dataType": "int64",
             "formatString": "0",
+            "isKey": true,
             "lineageTag": "6531b7fb-57f3-4687-ade5-5912501569eb",
             "sourceColumn": "SalesTerritoryKey",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "Region",
@@ -1001,6 +1083,7 @@
                 "value": "Automatic"
               }
             ],
+            "dataCategory": "County",
             "dataType": "string",
             "lineageTag": "03bc3ccc-fe12-466e-b96c-4a51512d22c2",
             "sourceColumn": "Country",
@@ -1014,6 +1097,7 @@
                 "value": "Automatic"
               }
             ],
+            "dataCategory": "Continent",
             "dataType": "string",
             "lineageTag": "7f3ce920-db52-4bcd-8a89-6dfe86979e31",
             "sourceColumn": "Continent",
@@ -1021,6 +1105,32 @@
           }
         ],
         "excludeFromModelRefresh": true,
+        "hierarchies": [
+          {
+            "name": "Territory Hierarchy",
+            "levels": [
+              {
+                "name": "Continent",
+                "column": "Continent",
+                "lineageTag": "5e124d49-9d99-4671-8fca-90852aecf0f3",
+                "ordinal": 0
+              },
+              {
+                "name": "Country",
+                "column": "Country",
+                "lineageTag": "396cac3b-22ea-40f8-a185-b1e9790ce07c",
+                "ordinal": 1
+              },
+              {
+                "name": "Region",
+                "column": "Region",
+                "lineageTag": "15c72cf4-23d5-442d-8ec6-f49adbaa3d44",
+                "ordinal": 2
+              }
+            ],
+            "lineageTag": "4a57c835-413b-4c2b-bb3a-c7937a9511f5"
+          }
+        ],
         "lineageTag": "4bc4dd42-ed6e-42e3-82ee-bc22c5310f82",
         "partitions": [
           {
@@ -1065,8 +1175,14 @@
                 "value": "Date"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
+            "isHidden": true,
             "lineageTag": "ff603893-9bac-4dd4-a1b1-44fc1e786ae5",
             "sourceColumn": "ReturnDate",
             "summarizeBy": "none"
@@ -1079,11 +1195,17 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "14615b36-6d31-49e3-81b1-1fb6ade7090f",
             "sourceColumn": "TerritoryKey",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "ProductKey",
@@ -1093,8 +1215,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "fdc92ab4-13a5-4267-8246-9fa5daf5840c",
             "sourceColumn": "ProductKey",
             "summarizeBy": "none"
@@ -1138,10 +1266,6 @@
         "name": "Sales Data",
         "annotations": [
           {
-            "name": "PBI_NavigationStepName",
-            "value": "Navigation"
-          },
-          {
             "name": "PBI_ResultType",
             "value": "Table"
           }
@@ -1159,8 +1283,14 @@
                 "value": "Date"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
+            "isHidden": true,
             "lineageTag": "5e9ea55a-fee6-4a42-9417-616f5dfa2c95",
             "sourceColumn": "OrderDate",
             "summarizeBy": "none"
@@ -1177,8 +1307,14 @@
                 "value": "Date"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
+            "isHidden": true,
             "lineageTag": "fd460b9c-4614-462c-8ce0-9c07388488ca",
             "sourceColumn": "StockDate",
             "summarizeBy": "none"
@@ -1204,8 +1340,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "eb390c50-522d-4e29-a8c5-0c6af1c18264",
             "sourceColumn": "ProductKey",
             "summarizeBy": "none"
@@ -1218,8 +1360,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "32b60daa-21e1-4b96-adfd-3cbf6d21e64b",
             "sourceColumn": "CustomerKey",
             "summarizeBy": "none"
@@ -1232,11 +1380,17 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "994cda47-9b25-4b1e-ab4d-62769fe558b2",
             "sourceColumn": "TerritoryKey",
-            "summarizeBy": "count"
+            "summarizeBy": "none"
           },
           {
             "name": "OrderLineItem",
