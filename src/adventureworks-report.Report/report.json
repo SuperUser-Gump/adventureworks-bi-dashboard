@@ -27,7 +27,7 @@
       "name": "ReportSection",
       "visualContainers": [
         {
-          "config": "{\"name\":\"0ae32e3cbfbed8847fd7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":40.33955857385399,\"y\":221.25636672325976,\"z\":0,\"width\":520.7470288624788,\"height\":279.9320882852292,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Values\":[{\"queryRef\":\"Measure Table.Order Quantity\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Measure Table\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Order Quantity\"},\"Name\":\"Measure Table.Order Quantity\",\"NativeReferenceName\":\"Order Quantity\"}]},\"drillFilterOtherVisuals\":true}}",
+          "config": "{\"name\":\"0ae32e3cbfbed8847fd7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":40.33955857385399,\"y\":221.25636672325976,\"z\":0,\"width\":520.7470288624788,\"height\":279.9320882852292,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Values\":[{\"queryRef\":\"Measure Table.Order Quantity\"},{\"queryRef\":\"Measure Table.Quantity Returned\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"Measure Table\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Order Quantity\"},\"Name\":\"Measure Table.Order Quantity\",\"NativeReferenceName\":\"Order Quantity\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Quantity Returned\"},\"Name\":\"Measure Table.Quantity Returned\",\"NativeReferenceName\":\"Quantity Returned\"}]},\"drillFilterOtherVisuals\":true}}",
           "filters": "[]",
           "height": 279.93,
           "width": 520.75,

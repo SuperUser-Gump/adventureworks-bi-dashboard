@@ -1465,6 +1465,17 @@
             ],
             "formatString": "#,0",
             "lineageTag": "2ef8596b-d881-4449-9ebd-50de834d1a6a"
+          },
+          {
+            "name": "Quantity Returned",
+            "expression": [
+              "",
+              "SUM(",
+              "    'Returns Data'[ReturnQuantity]",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "428130ed-cfd7-4d17-972d-2a38ff447483"
           }
         ],
         "partitions": [
