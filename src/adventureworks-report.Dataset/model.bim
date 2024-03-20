@@ -732,8 +732,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "23baef08-9513-4c39-85e1-fef13c15d132",
             "sourceColumn": "ProductSubcategoryKey",
             "summarizeBy": "none"
@@ -959,8 +965,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "2a5290a3-93e4-484a-bdfc-a62921fd4e12",
             "sourceColumn": "ProductCategoryKey",
             "summarizeBy": "none"
