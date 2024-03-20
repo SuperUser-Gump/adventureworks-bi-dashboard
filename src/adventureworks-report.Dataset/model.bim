@@ -944,6 +944,29 @@
             "lineageTag": "aac41856-1036-4eca-9d34-c852b52d8eca",
             "sourceColumn": "Discount Price",
             "summarizeBy": "sum"
+          },
+          {
+            "name": "Price Point",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "SWITCH(",
+              "    TRUE(),",
+              "    'Product Lookup'[ProductPrice] > 500, \"High\",",
+              "    'Product Lookup'[ProductPrice] > 100, \"Mid-Range\",",
+              "    \"Low\"",
+              ")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "02fc9702-4096-456d-bba8-8359f39b5836",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "excludeFromModelRefresh": true,
