@@ -838,13 +838,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "decimal",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "b32c5027-e7e4-41fe-8fb3-a87819152e5d",
             "sourceColumn": "ProductCost",
             "summarizeBy": "sum"
@@ -855,13 +852,10 @@
               {
                 "name": "SummarizationSetBy",
                 "value": "Automatic"
-              },
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
               }
             ],
             "dataType": "decimal",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "03604134-dc47-4fa9-ae5e-31f852f27ec9",
             "sourceColumn": "ProductPrice",
             "summarizeBy": "sum"
@@ -892,7 +886,7 @@
               }
             ],
             "dataType": "decimal",
-            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "aac41856-1036-4eca-9d34-c852b52d8eca",
             "sourceColumn": "Discount Price",
             "summarizeBy": "sum"
