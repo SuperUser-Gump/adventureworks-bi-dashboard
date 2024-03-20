@@ -1077,6 +1077,31 @@
             "lineageTag": "02fc9702-4096-456d-bba8-8359f39b5836",
             "summarizeBy": "none",
             "type": "calculated"
+          },
+          {
+            "name": "SKU Category",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "LEFT(",
+              "    'Product Lookup'[ProductSKU],",
+              "    SEARCH(",
+              "        \"-\",",
+              "        'Product Lookup'[ProductSKU]",
+              "    )",
+              "    - 1",
+              ")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "a5b9e63c-7541-48cb-a852-715a5662434f",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "excludeFromModelRefresh": true,
