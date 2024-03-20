@@ -709,6 +709,31 @@
             "lineageTag": "fa73f996-791d-44a4-a28d-e62b4bc67b0c",
             "summarizeBy": "none",
             "type": "calculated"
+          },
+          {
+            "name": "Education Category",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "SWITCH(",
+              "    TRUE(),",
+              "    'Customer Lookup'[EducationLevel] = \"High School\" ||",
+              "    'Customer Lookup'[EducationLevel] = \"Partial High School\", \"High School\",",
+              "    'Customer Lookup'[EducationLevel] = \"Bachelors\" ||",
+              "    'Customer Lookup'[EducationLevel] =  \"Partial College\", \"Undergrad\",",
+              "    'Customer Lookup'[EducationLevel] =  \"Graduate Degree\", \"Graduate\"",
+              ")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "5f97570b-0b28-429d-b2bd-ee58f1166811",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "excludeFromModelRefresh": true,
