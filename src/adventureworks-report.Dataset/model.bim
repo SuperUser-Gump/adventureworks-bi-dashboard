@@ -1235,7 +1235,7 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
             "isHidden": true,
             "lineageTag": "5e9ea55a-fee6-4a42-9417-616f5dfa2c95",
             "sourceColumn": "OrderDate",
@@ -1259,7 +1259,7 @@
               }
             ],
             "dataType": "dateTime",
-            "formatString": "Long Date",
+            "formatString": "Short Date",
             "isHidden": true,
             "lineageTag": "fd460b9c-4614-462c-8ce0-9c07388488ca",
             "sourceColumn": "StockDate",
