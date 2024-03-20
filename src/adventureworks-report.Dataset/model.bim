@@ -1656,6 +1656,31 @@
             "lineageTag": "6451cf88-2dbc-4efa-bd31-133a97653ecd",
             "sourceColumn": "OrderQuantity",
             "summarizeBy": "sum"
+          },
+          {
+            "name": "Retail Price",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "dataType": "decimal",
+            "expression": [
+              "",
+              "RELATED(",
+              "    'Product Lookup'[ProductPrice]",
+              ")"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "isDataTypeInferred": true,
+            "lineageTag": "260e07a5-9618-4f48-89ff-05eaf50f919b",
+            "summarizeBy": "sum",
+            "type": "calculated"
           }
         ],
         "lineageTag": "0ed16894-9bdc-405d-aaaf-6fbccf265c9b",
