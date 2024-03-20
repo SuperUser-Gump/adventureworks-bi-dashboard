@@ -1099,8 +1099,14 @@
                 "value": "Date"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "dateTime",
             "formatString": "Long Date",
+            "isHidden": true,
             "lineageTag": "ff603893-9bac-4dd4-a1b1-44fc1e786ae5",
             "sourceColumn": "ReturnDate",
             "summarizeBy": "none"
@@ -1113,8 +1119,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "14615b36-6d31-49e3-81b1-1fb6ade7090f",
             "sourceColumn": "TerritoryKey",
             "summarizeBy": "none"
@@ -1127,8 +1139,14 @@
                 "value": "Automatic"
               }
             ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
             "dataType": "int64",
             "formatString": "0",
+            "isHidden": true,
             "lineageTag": "fdc92ab4-13a5-4267-8246-9fa5daf5840c",
             "sourceColumn": "ProductKey",
             "summarizeBy": "none"
