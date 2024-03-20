@@ -643,6 +643,28 @@
             "lineageTag": "8bbf520d-ea58-46fb-bcdc-6f3af0cd78c7",
             "sourceColumn": "Domain Name",
             "summarizeBy": "none"
+          },
+          {
+            "name": "Is Parent ?",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "IF(",
+              "    'Customer Lookup'[TotalChildren] > 0,",
+              "    \"Yes\",",
+              "    \"No\"",
+              ")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "4a20c649-be10-49bf-b81a-b9692c131055",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "excludeFromModelRefresh": true,
