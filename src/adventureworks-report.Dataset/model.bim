@@ -1456,7 +1456,7 @@
         "lineageTag": "eb0aad02-8bea-4176-8fcd-0bd54fdc8de8",
         "measures": [
           {
-            "name": "Order Quantity",
+            "name": "Quantity Sold",
             "expression": [
               "",
               "SUM(",
