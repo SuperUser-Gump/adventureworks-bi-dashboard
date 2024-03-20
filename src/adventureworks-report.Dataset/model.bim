@@ -1051,6 +1051,7 @@
                 "value": "Automatic"
               }
             ],
+            "dataCategory": "County",
             "dataType": "string",
             "lineageTag": "03bc3ccc-fe12-466e-b96c-4a51512d22c2",
             "sourceColumn": "Country",
@@ -1064,6 +1065,7 @@
                 "value": "Automatic"
               }
             ],
+            "dataCategory": "Continent",
             "dataType": "string",
             "lineageTag": "7f3ce920-db52-4bcd-8a89-6dfe86979e31",
             "sourceColumn": "Continent",
