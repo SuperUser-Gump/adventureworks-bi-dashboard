@@ -1504,6 +1504,17 @@
             ],
             "formatString": "#,0",
             "lineageTag": "db510c52-a2a9-4fc0-9bb6-29b236b86003"
+          },
+          {
+            "name": "Total Orders",
+            "expression": [
+              "",
+              "DISTINCTCOUNT(",
+              "    'Sales Data'[OrderNumber]",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "9ff0f616-9bc3-4451-ad69-d970d5f07666"
           }
         ],
         "partitions": [
