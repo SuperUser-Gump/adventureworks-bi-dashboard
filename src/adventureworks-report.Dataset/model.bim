@@ -734,6 +734,24 @@
             "lineageTag": "5f97570b-0b28-429d-b2bd-ee58f1166811",
             "summarizeBy": "none",
             "type": "calculated"
+          },
+          {
+            "name": "Customer Full Name (CC)",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "'Customer Lookup'[Prefix] & \" \" & 'Customer Lookup'[FirstName] & \" \" & 'Customer Lookup'[LastName]"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "837ca8e6-8fc0-45fb-8fca-df70769b7688",
+            "summarizeBy": "none",
+            "type": "calculated"
           }
         ],
         "excludeFromModelRefresh": true,
