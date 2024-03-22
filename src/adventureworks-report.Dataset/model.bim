@@ -1992,6 +1992,26 @@
             ],
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "ac708f1f-f197-45d4-beed-836654751141"
+          },
+          {
+            "name": "YTD Revenue",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Total Revenue],",
+              "    DATESYTD(",
+              "        'Calendar Lookup'[Date]",
+              "    )",
+              ")"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "6b04ba2f-412a-4951-ac46-559bfde835fa"
           }
         ],
         "partitions": [
