@@ -1944,6 +1944,18 @@
             ],
             "formatString": "#,0",
             "lineageTag": "3186f661-80c8-4d8a-91e4-7d3a5c91bd52"
+          },
+          {
+            "name": "% of All Returns",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [Total Returns],",
+              "    [All Returns]",
+              ")"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "05d30657-495b-4b5a-9957-d2f81d0625f5"
           }
         ],
         "partitions": [
