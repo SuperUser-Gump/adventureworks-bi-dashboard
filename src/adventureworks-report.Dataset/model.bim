@@ -1848,6 +1848,18 @@
             ],
             "formatString": "#,0",
             "lineageTag": "09ce0b01-cde2-426d-ac66-2af777ac272b"
+          },
+          {
+            "name": "Bike Returns",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Total Returns],",
+              "    'Product Categories Lookup'[CategoryName] = \"Bikes\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "b7b099cb-11fd-4a20-b8cf-b469ad04d683"
           }
         ],
         "partitions": [
