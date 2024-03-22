@@ -1910,6 +1910,26 @@
             ],
             "formatString": "0.00%;-0.00%;0.00%",
             "lineageTag": "7ff7c270-e981-4e42-a6c8-94b633132517"
+          },
+          {
+            "name": "Overall Average Price",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Average Retail Price],",
+              "    ALL(",
+              "        'Product Lookup'",
+              "    )",
+              ")"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "60c1849f-ca72-490a-b224-6bb6b2c02611"
           }
         ],
         "partitions": [
