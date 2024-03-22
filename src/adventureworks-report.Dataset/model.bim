@@ -2134,6 +2134,21 @@
             ],
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "0bcb34dd-ef29-4b0b-96ed-83772d56d009"
+          },
+          {
+            "name": "Order Target",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDecimal\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "[Previous Month Orders] * 1.1"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "102d3635-b74e-44f8-91b6-6e9f35895f2a"
           }
         ],
         "partitions": [
