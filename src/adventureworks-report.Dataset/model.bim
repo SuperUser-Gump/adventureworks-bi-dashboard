@@ -1898,6 +1898,18 @@
             ],
             "formatString": "#,0",
             "lineageTag": "8ac5df1a-0ef5-4c4f-bbf8-bbdefbfe104b"
+          },
+          {
+            "name": "% of All Orders",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [Total Orders],",
+              "    [All Orders]",
+              ")"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "7ff7c270-e981-4e42-a6c8-94b633132517"
           }
         ],
         "partitions": [
