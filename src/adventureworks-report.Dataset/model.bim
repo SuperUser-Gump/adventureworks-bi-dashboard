@@ -1860,6 +1860,18 @@
             ],
             "formatString": "#,0",
             "lineageTag": "b7b099cb-11fd-4a20-b8cf-b469ad04d683"
+          },
+          {
+            "name": "Bike Sales",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Quantity Sold],",
+              "    'Product Categories Lookup'[CategoryName] = \"Bikes\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "177b1b87-7102-4162-b412-db8ad073c7ef"
           }
         ],
         "partitions": [
