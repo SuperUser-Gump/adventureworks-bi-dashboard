@@ -2034,6 +2034,21 @@
             ],
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "747ba4e8-8aa2-4c64-8561-02f240703091"
+          },
+          {
+            "name": "Revenue Target",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "[Previous Month Revenue] * 1.1"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "4d044ce8-0a88-489d-9787-0f6e158737a7"
           }
         ],
         "partitions": [
