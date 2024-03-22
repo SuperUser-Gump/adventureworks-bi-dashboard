@@ -2096,6 +2096,22 @@
             ],
             "formatString": "#,0",
             "lineageTag": "1d78ddf3-1f76-43b8-81d4-7cd17b85bf94"
+          },
+          {
+            "name": "Previous Month Orders",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Total Orders],",
+              "    DATEADD(",
+              "        'Calendar Lookup'[Date],",
+              "        -1,",
+              "        MONTH",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "5adfe899-5d7f-4d74-82de-2cae97845aef"
           }
         ],
         "partitions": [
