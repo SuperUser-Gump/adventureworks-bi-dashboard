@@ -2049,6 +2049,31 @@
             ],
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "4d044ce8-0a88-489d-9787-0f6e158737a7"
+          },
+          {
+            "name": "10-day Rolling Revenue",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Total Revenue],",
+              "    DATESINPERIOD(",
+              "        'Calendar Lookup'[Date],",
+              "        MAX(",
+              "            'Calendar Lookup'[Date]",
+              "        ),",
+              "        -10,",
+              "        DAY",
+              "    )",
+              ")"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "d3307f0c-3f8a-4909-930f-089618cdd9fb"
           }
         ],
         "partitions": [
