@@ -1956,6 +1956,21 @@
             ],
             "formatString": "0.00%;-0.00%;0.00%",
             "lineageTag": "05d30657-495b-4b5a-9957-d2f81d0625f5"
+          },
+          {
+            "name": "High Ticket Orders",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Total Orders],",
+              "    FILTER(",
+              "        'Product Lookup',",
+              "        'Product Lookup'[ProductPrice] > [Overall Average Price]",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "ca341e0a-b7ab-4927-b8d7-b9cb0dc6134d"
           }
         ],
         "partitions": [
