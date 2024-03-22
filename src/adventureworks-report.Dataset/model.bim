@@ -1971,6 +1971,27 @@
             ],
             "formatString": "#,0",
             "lineageTag": "ca341e0a-b7ab-4927-b8d7-b9cb0dc6134d"
+          },
+          {
+            "name": "Total Revenue",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "SUMX(",
+              "    'Sales Data',",
+              "    'Sales Data'[OrderQuantity] *",
+              "    RELATED(",
+              "        'Product Lookup'[ProductPrice]",
+              "    )",
+              ")"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "e86915e9-1959-4450-a860-c230dc5c0537"
           }
         ],
         "partitions": [
