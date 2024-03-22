@@ -1836,6 +1836,18 @@
             ],
             "formatString": "#,0",
             "lineageTag": "cceb5910-b32d-407e-830d-9ca92de4c96e"
+          },
+          {
+            "name": "Weekend Orders",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Total Orders],",
+              "    'Calendar Lookup'[Weekend] = \"Weekend\"",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "09ce0b01-cde2-426d-ac66-2af777ac272b"
           }
         ],
         "partitions": [
