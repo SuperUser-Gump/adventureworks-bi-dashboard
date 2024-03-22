@@ -2112,6 +2112,28 @@
             ],
             "formatString": "#,0",
             "lineageTag": "5adfe899-5d7f-4d74-82de-2cae97845aef"
+          },
+          {
+            "name": "Previous Month Profit",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Total Profit],",
+              "    DATEADD(",
+              "        'Calendar Lookup'[Date],",
+              "        -1,",
+              "        MONTH",
+              "    )",
+              ")"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "0bcb34dd-ef29-4b0b-96ed-83772d56d009"
           }
         ],
         "partitions": [
