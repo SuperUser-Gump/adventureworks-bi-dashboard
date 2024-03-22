@@ -1977,6 +1977,21 @@
             ],
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "e54dd255-63a4-4f87-b1cb-b9740d436bc6"
+          },
+          {
+            "name": "Total Profit",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "[Total Revenue] - [Total Cost]"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "ac708f1f-f197-45d4-beed-836654751141"
           }
         ],
         "partitions": [
