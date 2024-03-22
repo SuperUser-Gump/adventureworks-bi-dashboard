@@ -1872,6 +1872,18 @@
             ],
             "formatString": "#,0",
             "lineageTag": "177b1b87-7102-4162-b412-db8ad073c7ef"
+          },
+          {
+            "name": "Bike Return Rate",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Return Rate],",
+              "    'Product Categories Lookup'[CategoryName] = \"Bikes\"",
+              ")"
+            ],
+            "formatString": "0.00%;-0.00%;0.00%",
+            "lineageTag": "8435b925-2158-4947-99e7-cb89bfa91cd4"
           }
         ],
         "partitions": [
