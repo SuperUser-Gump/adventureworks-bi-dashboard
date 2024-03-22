@@ -1884,6 +1884,20 @@
             ],
             "formatString": "0.00%;-0.00%;0.00%",
             "lineageTag": "8435b925-2158-4947-99e7-cb89bfa91cd4"
+          },
+          {
+            "name": "All Orders",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Total Orders],",
+              "    ALL(",
+              "        'Sales Data'",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "8ac5df1a-0ef5-4c4f-bbf8-bbdefbfe104b"
           }
         ],
         "partitions": [
