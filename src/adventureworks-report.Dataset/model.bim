@@ -1930,6 +1930,20 @@
             ],
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "60c1849f-ca72-490a-b224-6bb6b2c02611"
+          },
+          {
+            "name": "All Returns",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Total Returns],",
+              "    ALL(",
+              "        'Returns Data'",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "3186f661-80c8-4d8a-91e4-7d3a5c91bd52"
           }
         ],
         "partitions": [
