@@ -1944,6 +1944,18 @@
             ],
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "e86915e9-1959-4450-a860-c230dc5c0537"
+          },
+          {
+            "name": "Average Revenue per Customer",
+            "expression": [
+              "",
+              "DIVIDE(",
+              "    [Total Revenue],",
+              "    [Total Customers]",
+              ")"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "a5823a51-d941-496c-949a-bc014a4d600f"
           }
         ],
         "partitions": [
