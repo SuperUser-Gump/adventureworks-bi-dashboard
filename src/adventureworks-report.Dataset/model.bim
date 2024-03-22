@@ -2074,6 +2074,28 @@
             ],
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "d3307f0c-3f8a-4909-930f-089618cdd9fb"
+          },
+          {
+            "name": "Previous Month Returns",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDecimal\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Total Returns],",
+              "    DATEADD(",
+              "        'Calendar Lookup'[Date],",
+              "        -1,",
+              "        MONTH",
+              "    )",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "1d78ddf3-1f76-43b8-81d4-7cd17b85bf94"
           }
         ],
         "partitions": [
