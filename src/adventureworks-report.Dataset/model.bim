@@ -1824,6 +1824,18 @@
             ],
             "formatString": "0.00%;-0.00%;0.00%",
             "lineageTag": "2004780a-45ed-4d31-ab06-8f2603f6b34c"
+          },
+          {
+            "name": "Bulk Orders",
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Total Orders],",
+              "    'Sales Data'[OrderQuantity] > 1",
+              ")"
+            ],
+            "formatString": "#,0",
+            "lineageTag": "cceb5910-b32d-407e-830d-9ca92de4c96e"
           }
         ],
         "partitions": [
