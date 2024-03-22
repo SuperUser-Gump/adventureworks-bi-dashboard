@@ -1956,6 +1956,27 @@
             ],
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "a5823a51-d941-496c-949a-bc014a4d600f"
+          },
+          {
+            "name": "Total Cost",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "SUMX(",
+              "    'Sales Data',",
+              "    'Sales Data'[OrderQuantity] *",
+              "    RELATED(",
+              "        'Product Lookup'[ProductCost]",
+              "    )",
+              ")"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "e54dd255-63a4-4f87-b1cb-b9740d436bc6"
           }
         ],
         "partitions": [
