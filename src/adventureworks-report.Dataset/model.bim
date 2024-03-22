@@ -2012,6 +2012,28 @@
             ],
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "6b04ba2f-412a-4951-ac46-559bfde835fa"
+          },
+          {
+            "name": "Previous Month Revenue",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "CALCULATE(",
+              "    [Total Revenue],",
+              "    DATEADD(",
+              "        'Calendar Lookup'[Date],",
+              "        -1,",
+              "        MONTH",
+              "    )",
+              ")"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "747ba4e8-8aa2-4c64-8561-02f240703091"
           }
         ],
         "partitions": [
