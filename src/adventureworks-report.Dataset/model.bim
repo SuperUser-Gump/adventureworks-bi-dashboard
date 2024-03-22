@@ -2149,6 +2149,21 @@
             ],
             "formatString": "#,0",
             "lineageTag": "102d3635-b74e-44f8-91b6-6e9f35895f2a"
+          },
+          {
+            "name": "Profit Target",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "[Previous Month Profit] * 1.1"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "92170d61-8d07-4d4d-831c-8bcc76ded7ef"
           }
         ],
         "partitions": [
