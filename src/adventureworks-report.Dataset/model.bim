@@ -1320,7 +1320,7 @@
                 "value": "Automatic"
               }
             ],
-            "dataCategory": "County",
+            "dataCategory": "Country",
             "dataType": "string",
             "lineageTag": "03bc3ccc-fe12-466e-b96c-4a51512d22c2",
             "sourceColumn": "Country",
