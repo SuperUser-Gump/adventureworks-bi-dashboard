@@ -2164,6 +2164,26 @@
             ],
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "92170d61-8d07-4d4d-831c-8bcc76ded7ef"
+          },
+          {
+            "name": "Total Orders (Customer Detail)",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "IF(",
+              "    HASONEVALUE(",
+              "        'Customer Lookup'[CustomerKey]",
+              "    ),",
+              "    [Total Orders],",
+              "    \"-\"",
+              ")"
+            ],
+            "lineageTag": "8ad9e8f2-cc0f-4ae5-af7a-7221b2dba12b"
           }
         ],
         "partitions": [
