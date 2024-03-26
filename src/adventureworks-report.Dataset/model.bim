@@ -2170,7 +2170,7 @@
             "annotations": [
               {
                 "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
+                "value": "{\"isDecimal\":true}"
               }
             ],
             "expression": [
@@ -2183,16 +2183,11 @@
               "    \"-\"",
               ")"
             ],
+            "formatString": "0",
             "lineageTag": "8ad9e8f2-cc0f-4ae5-af7a-7221b2dba12b"
           },
           {
             "name": "Total Revenue (Customer Detail)",
-            "annotations": [
-              {
-                "name": "PBI_FormatHint",
-                "value": "{\"isGeneralNumber\":true}"
-              }
-            ],
             "expression": [
               "",
               "IF(",
@@ -2203,6 +2198,7 @@
               "\"-\"",
               ")"
             ],
+            "formatString": "\\$#,0.0;(\\$#,0.0);\\$#,0.0",
             "lineageTag": "8c125c5d-4097-4e7a-b934-6595dafa0efb"
           },
           {
