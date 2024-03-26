@@ -2204,6 +2204,22 @@
               ")"
             ],
             "lineageTag": "8c125c5d-4097-4e7a-b934-6595dafa0efb"
+          },
+          {
+            "name": "Full Name (Customer Detail)",
+            "expression": [
+              "",
+              "IF(",
+              "    HASONEVALUE(",
+              "        'Customer Lookup'[CustomerKey]",
+              "    ),",
+              "    MAX(",
+              "        'Customer Lookup'[Full Name]",
+              "    ),",
+              "    \"Multiple Customers\"",
+              ")"
+            ],
+            "lineageTag": "04e8bd3a-a476-4aba-a421-90bfa326dae8"
           }
         ],
         "partitions": [
