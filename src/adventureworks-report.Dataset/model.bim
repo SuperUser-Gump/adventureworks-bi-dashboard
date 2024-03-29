@@ -2216,6 +2216,41 @@
               ")"
             ],
             "lineageTag": "04e8bd3a-a476-4aba-a421-90bfa326dae8"
+          },
+          {
+            "name": "Order Target Gap",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "[Total Orders] - [Order Target]",
+            "lineageTag": "095755f6-7e96-4e96-b779-78e41500c4cf"
+          },
+          {
+            "name": "Revenue Target Gap",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": "[Total Revenue] - [Revenue Target]",
+            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "lineageTag": "372ca24c-a4ea-4b7c-b15d-dd5284b11540"
+          },
+          {
+            "name": "Profit Target Gap",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": "[Total Profit] - [Profit Target]",
+            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "lineageTag": "320c652b-d77a-4bb2-9dc4-3f30bceabdb7"
           }
         ],
         "partitions": [
