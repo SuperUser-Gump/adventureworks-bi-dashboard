@@ -2237,7 +2237,7 @@
               }
             ],
             "expression": "[Total Revenue] - [Revenue Target]",
-            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
             "lineageTag": "372ca24c-a4ea-4b7c-b15d-dd5284b11540"
           },
           {
@@ -2249,7 +2249,7 @@
               }
             ],
             "expression": "[Total Profit] - [Profit Target]",
-            "formatString": "\\$#,0.###############;(\\$#,0.###############);\\$#,0.###############",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
             "lineageTag": "320c652b-d77a-4bb2-9dc4-3f30bceabdb7"
           }
         ],
