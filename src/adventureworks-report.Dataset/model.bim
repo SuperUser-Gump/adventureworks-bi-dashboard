@@ -2482,7 +2482,7 @@
         ]
       },
       {
-        "name": "Customer Metric Selection",
+        "name": "Customer Matrix Selection",
         "annotations": [
           {
             "name": "PBI_Id",
@@ -2564,13 +2564,13 @@
         "lineageTag": "a9ff44f4-c999-4dca-9fce-342412de00a4",
         "partitions": [
           {
-            "name": "Customer Metric Selection",
+            "name": "Customer Matrix Selection",
             "mode": "import",
             "source": {
               "expression": [
                 "{",
                 "    (\"Total Customers\", NAMEOF('Measure Table'[Total Customers]), 0),",
-                "    (\"Average Revenue per Customer\", NAMEOF('Measure Table'[Average Revenue per Customer]), 1)",
+                "    (\"Revenue per Customer\", NAMEOF('Measure Table'[Average Revenue per Customer]), 1)",
                 "}"
               ],
               "type": "calculated"

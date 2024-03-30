@@ -156,8 +156,7 @@
             "x": 2596.7475547933577,
             "y": 246.9720369743942
           },
-          "nodeIndex": "Customer Metric Selection",
-          "nodeLineageTag": "a9ff44f4-c999-4dca-9fce-342412de00a4",
+          "nodeIndex": "Customer Matrix Selection",
           "size": {
             "height": 152,
             "width": 234
