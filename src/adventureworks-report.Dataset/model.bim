@@ -199,6 +199,56 @@
         "toTable": "Product Categories Lookup"
       }
     ],
+    "roles": [
+      {
+        "name": "Europe",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "eb81c68a863549519017e9f01f2733b3"
+          }
+        ],
+        "modelPermission": "read",
+        "tablePermissions": [
+          {
+            "name": "Territory Lookup",
+            "filterExpression": "[Continent] == \"Europe\""
+          }
+        ]
+      },
+      {
+        "name": "North America",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "31b02a88798e463da7a44ca5ecbcf341"
+          }
+        ],
+        "modelPermission": "read",
+        "tablePermissions": [
+          {
+            "name": "Territory Lookup",
+            "filterExpression": "[Continent] == \"North America\""
+          }
+        ]
+      },
+      {
+        "name": "Pacific",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "cea477d0d4124ccab8541262b06276ad"
+          }
+        ],
+        "modelPermission": "read",
+        "tablePermissions": [
+          {
+            "name": "Territory Lookup",
+            "filterExpression": "[Continent] == \"Pacific\""
+          }
+        ]
+      }
+    ],
     "sourceQueryCulture": "en-US",
     "tables": [
       {
