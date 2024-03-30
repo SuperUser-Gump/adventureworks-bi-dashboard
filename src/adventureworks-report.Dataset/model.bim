@@ -2251,6 +2251,52 @@
             "expression": "[Total Profit] - [Profit Target]",
             "formatString": "\\$#,0;(\\$#,0);\\$#,0",
             "lineageTag": "320c652b-d77a-4bb2-9dc4-3f30bceabdb7"
+          },
+          {
+            "name": "Adjusted Price",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": "[Average Retail Price] * (1 + 'Price Adjustment (%)'[Price Adjustment (%) Value])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "25bd2a02-e867-4abe-a369-63a56225dc86"
+          },
+          {
+            "name": "Adjusted Revenue",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "SUMX(",
+              "    'Sales Data',",
+              "    'Sales Data'[OrderQuantity] *",
+              "    [Adjusted Price]",
+              ")"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "401bc4e8-e981-4f78-a001-f0a0bb39409e"
+          },
+          {
+            "name": "Adjusted Profit",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "[Adjusted Revenue] - [Total Cost]"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "5630bad1-5076-4f3b-bc5c-bd1cb08ae069"
           }
         ],
         "partitions": [
