@@ -199,6 +199,24 @@
         "toTable": "Product Categories Lookup"
       }
     ],
+    "roles": [
+      {
+        "name": "Europe",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "eb81c68a863549519017e9f01f2733b3"
+          }
+        ],
+        "modelPermission": "read",
+        "tablePermissions": [
+          {
+            "name": "Territory Lookup",
+            "filterExpression": "[Continent] == \"Europe\""
+          }
+        ]
+      }
+    ],
     "sourceQueryCulture": "en-US",
     "tables": [
       {
