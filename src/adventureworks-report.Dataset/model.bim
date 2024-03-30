@@ -2380,6 +2380,106 @@
             }
           }
         ]
+      },
+      {
+        "name": "Product Metric Selection",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "fd29978070424630a5098b3ece07ed4c"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Product Metric Selection",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": false,
+            "lineageTag": "45353c28-bb85-407b-aea2-e77e24f5cbfb",
+            "relatedColumnDetails": {
+              "groupByColumns": [
+                {
+                  "groupingColumn": "Product Metric Selection Fields"
+                }
+              ]
+            },
+            "sortByColumn": "Product Metric Selection Order",
+            "sourceColumn": "[Value1]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Product Metric Selection Fields",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "extendedProperties": [
+              {
+                "name": "ParameterMetadata",
+                "type": "json",
+                "value": {
+                  "kind": 2,
+                  "version": 3
+                }
+              }
+            ],
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "8c0886ff-3bbb-4ade-8174-f7172f20953d",
+            "sortByColumn": "Product Metric Selection Order",
+            "sourceColumn": "[Value2]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Product Metric Selection Order",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "195f75c4-5419-46f2-b4b4-d5c8f26971b7",
+            "sourceColumn": "[Value3]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "e76c9f96-013f-4493-ba99-66da1bfa5147",
+        "partitions": [
+          {
+            "name": "Product Metric Selection",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "{",
+                "    (\"Total Orders\", NAMEOF('Measure Table'[Total Orders]), 0),",
+                "    (\"Total Revenue\", NAMEOF('Measure Table'[Total Revenue]), 1),",
+                "    (\"Total Profit\", NAMEOF('Measure Table'[Total Profit]), 2),",
+                "    (\"Total Returns\", NAMEOF('Measure Table'[Total Returns]), 3),",
+                "    (\"Return Rate\", NAMEOF('Measure Table'[Return Rate]), 4)",
+                "}"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
       }
     ]
   }
