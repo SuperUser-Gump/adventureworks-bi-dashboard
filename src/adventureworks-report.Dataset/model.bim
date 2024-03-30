@@ -231,6 +231,22 @@
             "filterExpression": "[Continent] == \"North America\""
           }
         ]
+      },
+      {
+        "name": "Pacific",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "cea477d0d4124ccab8541262b06276ad"
+          }
+        ],
+        "modelPermission": "read",
+        "tablePermissions": [
+          {
+            "name": "Territory Lookup",
+            "filterExpression": "[Continent] == \"Pacific\""
+          }
+        ]
       }
     ],
     "sourceQueryCulture": "en-US",
