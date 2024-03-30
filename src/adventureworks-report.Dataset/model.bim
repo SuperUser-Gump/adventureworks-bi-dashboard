@@ -1320,7 +1320,7 @@
                 "value": "Automatic"
               }
             ],
-            "dataCategory": "County",
+            "dataCategory": "Country",
             "dataType": "string",
             "lineageTag": "03bc3ccc-fe12-466e-b96c-4a51512d22c2",
             "sourceColumn": "Country",
@@ -2164,6 +2164,139 @@
             ],
             "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
             "lineageTag": "92170d61-8d07-4d4d-831c-8bcc76ded7ef"
+          },
+          {
+            "name": "Total Orders (Customer Detail)",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isDecimal\":true}"
+              }
+            ],
+            "expression": [
+              "",
+              "IF(",
+              "    HASONEVALUE(",
+              "        'Customer Lookup'[CustomerKey]",
+              "    ),",
+              "    [Total Orders],",
+              "    \"-\"",
+              ")"
+            ],
+            "formatString": "0",
+            "lineageTag": "8ad9e8f2-cc0f-4ae5-af7a-7221b2dba12b"
+          },
+          {
+            "name": "Total Revenue (Customer Detail)",
+            "expression": [
+              "",
+              "IF(",
+              "HASONEVALUE(",
+              "    'Customer Lookup'[CustomerKey]",
+              "),",
+              "[Total Revenue],",
+              "\"-\"",
+              ")"
+            ],
+            "formatString": "\\$#,0.0;(\\$#,0.0);\\$#,0.0",
+            "lineageTag": "8c125c5d-4097-4e7a-b934-6595dafa0efb"
+          },
+          {
+            "name": "Full Name (Customer Detail)",
+            "expression": [
+              "",
+              "IF(",
+              "    HASONEVALUE(",
+              "        'Customer Lookup'[CustomerKey]",
+              "    ),",
+              "    MAX(",
+              "        'Customer Lookup'[Full Name]",
+              "    ),",
+              "    \"Multiple Customers\"",
+              ")"
+            ],
+            "lineageTag": "04e8bd3a-a476-4aba-a421-90bfa326dae8"
+          },
+          {
+            "name": "Order Target Gap",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "[Total Orders] - [Order Target]",
+            "lineageTag": "095755f6-7e96-4e96-b779-78e41500c4cf"
+          },
+          {
+            "name": "Revenue Target Gap",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": "[Total Revenue] - [Revenue Target]",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "lineageTag": "372ca24c-a4ea-4b7c-b15d-dd5284b11540"
+          },
+          {
+            "name": "Profit Target Gap",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": "[Total Profit] - [Profit Target]",
+            "formatString": "\\$#,0;(\\$#,0);\\$#,0",
+            "lineageTag": "320c652b-d77a-4bb2-9dc4-3f30bceabdb7"
+          },
+          {
+            "name": "Adjusted Price",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": "[Average Retail Price] * (1 + 'Price Adjustment (%)'[Price Adjustment (%) Value])",
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "25bd2a02-e867-4abe-a369-63a56225dc86"
+          },
+          {
+            "name": "Adjusted Revenue",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "SUMX(",
+              "    'Sales Data',",
+              "    'Sales Data'[OrderQuantity] *",
+              "    [Adjusted Price]",
+              ")"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "401bc4e8-e981-4f78-a001-f0a0bb39409e"
+          },
+          {
+            "name": "Adjusted Profit",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"en-US\"}"
+              }
+            ],
+            "expression": [
+              "",
+              "[Adjusted Revenue] - [Total Cost]"
+            ],
+            "formatString": "\\$#,0.00;(\\$#,0.00);\\$#,0.00",
+            "lineageTag": "5630bad1-5076-4f3b-bc5c-bd1cb08ae069"
           }
         ],
         "partitions": [
@@ -2180,6 +2313,267 @@
                 "    #\"Removed Columns\""
               ],
               "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Price Adjustment (%)",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "a2b23dd8a9404325b09e0e1f5158e597"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Price Adjustment (%)",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "extendedProperties": [
+              {
+                "name": "ParameterMetadata",
+                "type": "json",
+                "value": {
+                  "version": 0
+                }
+              }
+            ],
+            "isDataTypeInferred": true,
+            "isNameInferred": false,
+            "lineageTag": "77c8fda9-e3ac-40bf-950c-02c247df331b",
+            "sourceColumn": "[Value]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "94edfd04-3d7f-461e-b4d1-1fc5d2be42c1",
+        "measures": [
+          {
+            "name": "Price Adjustment (%) Value",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "SELECTEDVALUE('Price Adjustment (%)'[Price Adjustment (%)], 0)",
+            "lineageTag": "3f63deb9-f832-4983-acf1-81ffccc761f0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Price Adjustment (%)",
+            "mode": "import",
+            "source": {
+              "expression": "GENERATESERIES(-1, 1, 0.1)",
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Product Metric Selection",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "fd29978070424630a5098b3ece07ed4c"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Product Metric Selection",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": false,
+            "lineageTag": "45353c28-bb85-407b-aea2-e77e24f5cbfb",
+            "relatedColumnDetails": {
+              "groupByColumns": [
+                {
+                  "groupingColumn": "Product Metric Selection Fields"
+                }
+              ]
+            },
+            "sortByColumn": "Product Metric Selection Order",
+            "sourceColumn": "[Value1]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Product Metric Selection Fields",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "extendedProperties": [
+              {
+                "name": "ParameterMetadata",
+                "type": "json",
+                "value": {
+                  "kind": 2,
+                  "version": 3
+                }
+              }
+            ],
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "8c0886ff-3bbb-4ade-8174-f7172f20953d",
+            "sortByColumn": "Product Metric Selection Order",
+            "sourceColumn": "[Value2]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Product Metric Selection Order",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "195f75c4-5419-46f2-b4b4-d5c8f26971b7",
+            "sourceColumn": "[Value3]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "e76c9f96-013f-4493-ba99-66da1bfa5147",
+        "partitions": [
+          {
+            "name": "Product Metric Selection",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "{",
+                "    (\"Orders\", NAMEOF('Measure Table'[Total Orders]), 0),",
+                "    (\"Revenue\", NAMEOF('Measure Table'[Total Revenue]), 1),",
+                "    (\"Profit\", NAMEOF('Measure Table'[Total Profit]), 2),",
+                "    (\"Returns\", NAMEOF('Measure Table'[Total Returns]), 3),",
+                "    (\"Return %\", NAMEOF('Measure Table'[Return Rate]), 4)",
+                "}"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Customer Matrix Selection",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "c00c84cc5d8c4325b2ed49882447fee7"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Customer Metric Selection",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": false,
+            "lineageTag": "e2af693e-f828-4c1b-a5ad-eb46d40e3190",
+            "relatedColumnDetails": {
+              "groupByColumns": [
+                {
+                  "groupingColumn": "Customer Metric Selection Fields"
+                }
+              ]
+            },
+            "sortByColumn": "Customer Metric Selection Order",
+            "sourceColumn": "[Value1]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Customer Metric Selection Fields",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "extendedProperties": [
+              {
+                "name": "ParameterMetadata",
+                "type": "json",
+                "value": {
+                  "kind": 2,
+                  "version": 3
+                }
+              }
+            ],
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "ca7fc94a-437d-450a-a08d-a37d9e2a69c4",
+            "sortByColumn": "Customer Metric Selection Order",
+            "sourceColumn": "[Value2]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Customer Metric Selection Order",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "6609ed01-e169-49fe-bced-5a237fa46747",
+            "sourceColumn": "[Value3]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "a9ff44f4-c999-4dca-9fce-342412de00a4",
+        "partitions": [
+          {
+            "name": "Customer Matrix Selection",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "{",
+                "    (\"Total Customers\", NAMEOF('Measure Table'[Total Customers]), 0),",
+                "    (\"Revenue per Customer\", NAMEOF('Measure Table'[Average Revenue per Customer]), 1)",
+                "}"
+              ],
+              "type": "calculated"
             }
           }
         ]

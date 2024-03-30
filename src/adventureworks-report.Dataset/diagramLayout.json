@@ -124,6 +124,44 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2028.7475547933577,
+            "y": 210.9720369743942
+          },
+          "nodeIndex": "Price Adjustment (%)",
+          "nodeLineageTag": "94edfd04-3d7f-461e-b4d1-1fc5d2be42c1",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2312.7475547933577,
+            "y": 246.9720369743942
+          },
+          "nodeIndex": "Product Metric Selection",
+          "nodeLineageTag": "e76c9f96-013f-4493-ba99-66da1bfa5147",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2596.7475547933577,
+            "y": 246.9720369743942
+          },
+          "nodeIndex": "Customer Matrix Selection",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
