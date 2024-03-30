@@ -2480,6 +2480,103 @@
             }
           }
         ]
+      },
+      {
+        "name": "Customer Metric Selection",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "c00c84cc5d8c4325b2ed49882447fee7"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Customer Metric Selection",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "isNameInferred": false,
+            "lineageTag": "e2af693e-f828-4c1b-a5ad-eb46d40e3190",
+            "relatedColumnDetails": {
+              "groupByColumns": [
+                {
+                  "groupingColumn": "Customer Metric Selection Fields"
+                }
+              ]
+            },
+            "sortByColumn": "Customer Metric Selection Order",
+            "sourceColumn": "[Value1]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Customer Metric Selection Fields",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "extendedProperties": [
+              {
+                "name": "ParameterMetadata",
+                "type": "json",
+                "value": {
+                  "kind": 2,
+                  "version": 3
+                }
+              }
+            ],
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "ca7fc94a-437d-450a-a08d-a37d9e2a69c4",
+            "sortByColumn": "Customer Metric Selection Order",
+            "sourceColumn": "[Value2]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          },
+          {
+            "name": "Customer Metric Selection Order",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "isDataTypeInferred": true,
+            "isHidden": true,
+            "isNameInferred": false,
+            "lineageTag": "6609ed01-e169-49fe-bced-5a237fa46747",
+            "sourceColumn": "[Value3]",
+            "summarizeBy": "sum",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "a9ff44f4-c999-4dca-9fce-342412de00a4",
+        "partitions": [
+          {
+            "name": "Customer Metric Selection",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "{",
+                "    (\"Total Customers\", NAMEOF('Measure Table'[Total Customers]), 0),",
+                "    (\"Average Revenue per Customer\", NAMEOF('Measure Table'[Average Revenue per Customer]), 1)",
+                "}"
+              ],
+              "type": "calculated"
+            }
+          }
+        ]
       }
     ]
   }
