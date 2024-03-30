@@ -215,6 +215,22 @@
             "filterExpression": "[Continent] == \"Europe\""
           }
         ]
+      },
+      {
+        "name": "North America",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "31b02a88798e463da7a44ca5ecbcf341"
+          }
+        ],
+        "modelPermission": "read",
+        "tablePermissions": [
+          {
+            "name": "Territory Lookup",
+            "filterExpression": "[Continent] == \"North America\""
+          }
+        ]
       }
     ],
     "sourceQueryCulture": "en-US",
