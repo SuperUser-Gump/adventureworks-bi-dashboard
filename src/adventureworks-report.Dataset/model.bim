@@ -2270,6 +2270,70 @@
             }
           }
         ]
+      },
+      {
+        "name": "Price Adjustment (%)",
+        "annotations": [
+          {
+            "name": "PBI_Id",
+            "value": "a2b23dd8a9404325b09e0e1f5158e597"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Price Adjustment (%)",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "extendedProperties": [
+              {
+                "name": "ParameterMetadata",
+                "type": "json",
+                "value": {
+                  "version": 0
+                }
+              }
+            ],
+            "isDataTypeInferred": true,
+            "isNameInferred": false,
+            "lineageTag": "77c8fda9-e3ac-40bf-950c-02c247df331b",
+            "sourceColumn": "[Value]",
+            "summarizeBy": "none",
+            "type": "calculatedTableColumn"
+          }
+        ],
+        "lineageTag": "94edfd04-3d7f-461e-b4d1-1fc5d2be42c1",
+        "measures": [
+          {
+            "name": "Price Adjustment (%) Value",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "expression": "SELECTEDVALUE('Price Adjustment (%)'[Price Adjustment (%)], 0)",
+            "lineageTag": "3f63deb9-f832-4983-acf1-81ffccc761f0"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Price Adjustment (%)",
+            "mode": "import",
+            "source": {
+              "expression": "GENERATESERIES(-1, 1, 0.1)",
+              "type": "calculated"
+            }
+          }
+        ]
       }
     ]
   }
