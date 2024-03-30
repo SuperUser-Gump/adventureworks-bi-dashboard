@@ -2469,11 +2469,11 @@
             "source": {
               "expression": [
                 "{",
-                "    (\"Total Orders\", NAMEOF('Measure Table'[Total Orders]), 0),",
-                "    (\"Total Revenue\", NAMEOF('Measure Table'[Total Revenue]), 1),",
-                "    (\"Total Profit\", NAMEOF('Measure Table'[Total Profit]), 2),",
-                "    (\"Total Returns\", NAMEOF('Measure Table'[Total Returns]), 3),",
-                "    (\"Return Rate\", NAMEOF('Measure Table'[Return Rate]), 4)",
+                "    (\"Orders\", NAMEOF('Measure Table'[Total Orders]), 0),",
+                "    (\"Revenue\", NAMEOF('Measure Table'[Total Revenue]), 1),",
+                "    (\"Profit\", NAMEOF('Measure Table'[Total Profit]), 2),",
+                "    (\"Returns\", NAMEOF('Measure Table'[Total Returns]), 3),",
+                "    (\"Return %\", NAMEOF('Measure Table'[Return Rate]), 4)",
                 "}"
               ],
               "type": "calculated"
