@@ -37,6 +37,10 @@ The dashboard leverages four dedicated pages to present information effectively:
 
 **Development Tools:** Power BI Desktop Version: 2.126.1261.0 64-bit (February 2024)
 
+**Live Demo:**
+
+Due to budget limitations, the live demo is currently unavailable. However, I'm actively working towards securing the necessary Power BI Pro license to host it. This repository will be updated with the live demo link as soon as it becomes available.
+
 **Disclaimer:**
 
 This project utilizes Power BI Desktop and adheres to the design and structure of the [Microsoft Power BI Desktop for Business Intelligence](https://www.udemy.com/course/microsoft-power-bi-up-running-with-power-bi-desktop) course from [Maven Analytics](https://mavenanalytics.io/). The primary objective is to apply and solidify the concepts learned, not the development of an original dashboard design.
