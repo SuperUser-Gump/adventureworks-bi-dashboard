@@ -792,3 +792,16 @@ This interactive dashboard provides a comprehensive overview of AdventureWorks' 
 **Seamless Navigation:** The side navigation bar provides navigation between the four dashboard pages. Users can simply click the desired button (Executive Dashboard, Regional Sales Map, Product Details, or Customer Details) to switch to the corresponding page.
 
 ![Navigation](/images/dashboard_animations/navigation.gif)
+
+## Getting Started
+
+**Prerequisites:** [Microsoft Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/)
+
+**Instructions**
+
+1. Download and install Power BI Desktop.
+2. Clone this repository to your local machine.
+3. Navigate to the [/adventureworks-report/src/](/src/) folder.
+4. Double-click the [adventureworks-report.pbip](/src/adventureworks-report.pbip) file. Power BI Desktop will launch and open the Executive Dashboard.
+
+**Note:** [Images](/images/) and the [dataset](/data/) are not included in this repository as they are exclusive to students enrolled in the [Microsoft Power BI Desktop for Business Intelligence](https://www.udemy.com/course/microsoft-power-bi-up-running-with-power-bi-desktop) course from [Maven Analytics](https://mavenanalytics.io/).
