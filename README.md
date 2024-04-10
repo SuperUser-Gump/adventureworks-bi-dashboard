@@ -745,7 +745,8 @@ This interactive dashboard provides a comprehensive overview of AdventureWorks' 
 
 - **Slicer Panel:** A filter button opens a slicer panel that enables users to filter and view data by year and continent.
 
-  ![Slicer Panel](/images/dashboard_animations/slicer_panel_03.gif)
+  ![Slicer Panel 01](/images/dashboard_animations/slicer_panel_01.gif)
+  ![Slicer Panel 02](/images/dashboard_animations/slicer_panel_03.gif)
 
 - **Reset View:** A reset button restores the dashboard to its initial state, removing all applied filters.
 
