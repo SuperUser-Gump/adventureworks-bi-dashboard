@@ -27,13 +27,13 @@ The dashboard leverages four dedicated pages to present information effectively:
 
   ![Regional Sales Map](/images/dashboard_images/02%20Map.png)
 
-- **Product Details Page:** Offers in-depth analysis of product trends and performance.
+- **Product Details:** Offers in-depth analysis of product trends and performance.
 
-  ![Product Details Page](/images/dashboard_images/03%20Product%20Detail.png)
+  ![Product Details](/images/dashboard_images/03%20Product%20Detail.png)
 
-- **Customer Details Page:** Identifies and helps understand high-value customer segments for targeted marketing strategies.
+- **Customer Details:** Identifies and helps understand high-value customer segments for targeted marketing strategies.
 
-  ![Customer Details Page](/images/dashboard_images/04%20Customer%20Detail.png)
+  ![Customer Details](/images/dashboard_images/04%20Customer%20Detail.png)
 
 **Development Tools:** Power BI Desktop Version: 2.126.1261.0 64-bit (February 2024)
 
@@ -679,3 +679,116 @@ This section outlines the key metrics used to evaluate performance throughout th
   ```
   Adjusted Profit = [Adjusted Revenue] - [Total Cost]
   ```
+
+## Dashboard Functionalities
+
+This interactive dashboard provides a comprehensive overview of AdventureWorks' sales performance across four dedicated pages accessible via a side navigation menu. Each page offers specific functionalities to explore various sales aspects.
+
+**Executive Dashboard:**
+
+- **KPI Overview:** Cards display key performance indicators (KPIs) including total revenue, total profit, total orders, and return rate.
+
+  ![KPI Overview](/images/dashboard_images/01%20KPI%20Cards.png)
+
+- **Revenue Trend:** A line chart with drill-up/down capabilities allows users to explore revenue trends over time at different granularities (year, month, week, date).
+
+  ![Revenue Trend Drill-down](/images/dashboard_animations/revenue_trending_01.gif)
+  ![Revenue Trend Drill-up](/images/dashboard_animations/revenue_trending_02.gif)
+
+- **Sales by Category:** A clustered bar chart visualizes the distribution of orders across different product categories.
+
+  ![Sales by Category](/images/dashboard_images/03%20Orders%20by%20Category.png)
+
+- **Monthly Performance:** Cards display trends in monthly revenue, orders, and returns, along with the percentage change compared to the previous month.
+
+  ![Monthly Performance](/images/dashboard_images/05%20Monthly%20Cards.png)
+
+- **Top-Selling Products:** A matrix displays the top ten products by order volume. Users can then drill through to the Product Details page for a deeper analysis of individual product metrics (total orders, revenue, and return rate).
+
+  ![Top-Selling Products Drill Through](/images/dashboard_animations/drill_through.gif)
+
+- **Product Type Insights:** Cards display the most ordered and most returned product types.
+
+  ![Product Type Insights](/images/dashboard_images/06%20Most%20Orders%20&%20Returned%20Product%20Type%20Cards.png)
+
+- **Slicer Panel:** A filter button opens a slicer panel that enables users to filter and view data by year and continent.
+
+  ![Slicer Panel](/images/dashboard_animations/slicer_panel_03.gif)
+
+- **Reset View:** A reset button restores the dashboard to its initial state, removing all applied filters.
+
+  ![Executive Dashboard Reset View](/images/dashboard_animations/exec_dashboard_reset.gif)
+
+**Regional Sales Map:**
+
+- **Global Sales:** A map displays bubbles sized proportionally to the total order volume of each country.
+
+  ![Global Sales](/images/dashboard_images/07%20Map.png)
+
+- **Regional Exploration with Slicer:** A slicer enables users to filter and view data by continent.
+
+  ![Regional Exploration with Slicer](/images/dashboard_animations/map_slicer_01.gif)
+
+**Product Details (Accessible via Drill-Through from Executive Dashboard):**
+
+- **In-Depth Product Performance:** A card displays the selected product.
+
+  ![In-Depth Product Performance](/images/dashboard_images/08%20Selected%20Product%20Card.png)
+
+- **Goal-Oriented Gauges:** Gauges display monthly orders, revenue, and profit for the selected product, enabling users to monitor performance against predefined targets.
+
+  ![Goal-Oriented Gauges](/images/dashboard_images/09%20Gauges.png)
+
+- **Price Sensitivity:** A line with chart drill-up/down capabilities visualizes both total profit and adjusted profit based on a user-defined percentage range for price changes over time at different granularities (year, month, week, date).
+
+  ![Price Sensitivity](/images/dashboard_animations/price_sensitivity.gif)
+  ![Price Sensitivity Drill-down](/images/dashboard_animations/profit_trending_01.gif)
+  ![Price Sensitivity Drill-up](/images/dashboard_animations/profit_trending_02.gif)
+
+- **Performance Trend:** An area chart with drill-up/down capabilities allows users to explore various product metrics (orders, revenue, profit, returns, return rate) over time at different granularities (year, month, week, date).
+
+  ![Performance Trend](/images/dashboard_animations/product_matric_selection.gif)
+  ![Performance Trend Drill-down](/images/dashboard_animations/product_matric_selection_drill_down.gif)
+  ![Performance Trend Drill-up](/images/dashboard_animations/product_matric_selection_drill_up.gif)
+
+**Customer Details:**
+
+- **Customer Base Summary:** Cards display a quick summary of total customers and average revenue per customer.
+
+  ![Customer Base Summary](/images/dashboard_images/14%20Customer%20Cards.png)
+
+- **Customer Trend:** A line chart with field selection and drill-up/down capabilities allows users to explore trends in total customers or revenue per customer over time at different granularities (year, month, week, date).
+
+  ![Customer Trend](/images/dashboard_animations/customer_trending.gif)
+  ![Customer Trend Drill-down](/images/dashboard_animations/customer_trending_drill_down.gif)
+  ![Customer Trend Drill-up](/images/dashboard_animations/customer_trending_drill_up.gif)
+
+- **Customer Segmentation:** Donut charts visualize the distribution of orders by income level and occupation.
+
+  ![Orders by Income Level](/images/dashboard_images/16%20Orders%20by%20Income%20Level.png)
+  ![Orders by Occupation](/images/dashboard_images/17%20Orders%20by%20Occupation.png)
+
+- **Top Customer Identification:** A table displays the top 100 customers by order volume, along with their associated total orders and total revenue. Grand totals for all customers are also provided.
+
+  ![Top Customer Identification](/images/dashboard_images/18%20Top%20100%20Customers.png)
+
+- **Customer Insights:** An information button allows users to apply filters and gain deeper insights into specific customer segments. (For example, identifying the skilled manual customer who generated the highest revenue in 2022).
+
+  ![Customer Insights](/images/dashboard_animations/customer_insight.gif)
+
+- **Year-Specific Filter:** A slicer allows users to filter customer data for a specific year.
+
+  ![Year-Specific Filter 01](/images/dashboard_animations/year_slicer_01.gif)
+  ![Year-Specific Filter 02](/images/dashboard_animations/year_slicer_02.gif)
+
+- **Top Customer Recognition:** Cards display the top customer by revenue, along with their associated total orders and revenue.
+
+  ![Top Customer Recognition](/images/dashboard_images/20%20Top%20Customer%20by%20Revenue%20Cards.png)
+
+- **Reset View:** A reset button restores the dashboard to its initial state, removing all applied filters.
+
+  ![Customer Details Reset View](/images/dashboard_animations/customer_reset.gif)
+
+**Seamless Navigation:** The side navigation bar provides navigation between the four dashboard pages. Users can simply click the desired button (Executive Dashboard, Regional Sales Map, Product Details, or Customer Details) to switch to the corresponding page.
+
+![Navigation](/images/dashboard_animations/navigation.gif)
