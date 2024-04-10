@@ -1,5 +1,19 @@
 # Power BI Dashboard for AdventureWorks
 
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Data Sources and Transformations](#data-sources-and-transformations)
+  - [Data Source Description](#data-source-description)
+  - [Data Transformations](#data-transformations)
+- [Data Model and Measures](#data-model-and-measures)
+  - [Data Model](#data-model)
+  - [Measures](#measures)
+- [Dashboard Functionalities](#dashboard-functionalities)
+- [Getting Started](#getting-started)
+
+<a id="project-overview"></a>
+
 ## Project Overview
 
 This Power BI dashboard empowers AdventureWorks, a global cycling equipment manufacturer, with data-driven insights for informed decision-making. It equips the management team to analyze key performance indicators (KPIs), identify regional sales variations, understand product performance trends, and segment high-value customers.
@@ -45,7 +59,11 @@ Due to budget limitations, the live demo is currently unavailable. However, I'm 
 
 This project utilizes Power BI Desktop and adheres to the design and structure of the [Microsoft Power BI Desktop for Business Intelligence](https://www.udemy.com/course/microsoft-power-bi-up-running-with-power-bi-desktop) course from [Maven Analytics](https://mavenanalytics.io/). The primary objective is to apply and solidify the concepts learned, not the development of an original dashboard design.
 
+<a id="data-sources-and-transformations"></a>
+
 ## Data Sources and Transformations
+
+<a id="data-source-description"></a>
 
 ### Data Source Description
 
@@ -115,6 +133,8 @@ This section provides a detailed description of the tables included in the [Adve
   - `TerritoryKey`: Foreign key to Territory.
   - `OrderLineItem`: Line item number.
   - `OrderQuantity`: Quantity sold per line item.
+
+<a id="data-transformations"></a>
 
 ### Data Transformations
 
@@ -247,7 +267,11 @@ This section details transformations applied to various data sources to prepare 
       )
       ```
 
+<a id="data-model-and-measures"></a>
+
 ## Data Model and Measures
+
+<a id="data-model"></a>
 
 ### Data Model
 
@@ -284,6 +308,8 @@ Foreign key relationships connect the tables, enabling efficient data retrieval 
   - `Product Subcategories Lookup.ProductCategoryKey` links to `Product Categories Lookup.ProductCategoryKey` (product category hierarchy).
 
 ![Data Model](/images/Data%20Model%20Structure.drawio.png)
+
+<a id="measures"></a>
 
 ### Measures
 
@@ -684,6 +710,8 @@ This section outlines the key metrics used to evaluate performance throughout th
   Adjusted Profit = [Adjusted Revenue] - [Total Cost]
   ```
 
+<a id="dashboard-functionalities"></a>
+
 ## Dashboard Functionalities
 
 This interactive dashboard provides a comprehensive overview of AdventureWorks' sales performance across four dedicated pages accessible via a side navigation menu. Each page offers specific functionalities to explore various sales aspects.
@@ -796,6 +824,8 @@ This interactive dashboard provides a comprehensive overview of AdventureWorks' 
 **Seamless Navigation:** The side navigation bar provides navigation between the four dashboard pages. Users can simply click the desired button (Executive Dashboard, Regional Sales Map, Product Details, or Customer Details) to switch to the corresponding page.
 
 ![Navigation](/images/dashboard_animations/navigation.gif)
+
+<a id="getting-started"></a>
 
 ## Getting Started
 
