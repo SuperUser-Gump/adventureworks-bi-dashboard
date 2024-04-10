@@ -10,6 +10,10 @@
   - [Data Model](#data-model)
   - [Measures](#measures)
 - [Dashboard Functionalities](#dashboard-functionalities)
+  - [Executive Dashboard](#executive-dashboard)
+  - [Regional Sales Map](#regional-sales-map)
+  - [Product Details](#product-details)
+  - [Customer Details](#customer-details)
 - [Getting Started](#getting-started)
 
 <a id="project-overview"></a>
@@ -716,7 +720,9 @@ This section outlines the key metrics used to evaluate performance throughout th
 
 This interactive dashboard provides a comprehensive overview of AdventureWorks' sales performance across four dedicated pages accessible via a side navigation menu. Each page offers specific functionalities to explore various sales aspects.
 
-**Executive Dashboard:**
+<a id="executive-dashboard"></a>
+
+### Executive Dashboard
 
 - **KPI Overview:** Cards display key performance indicators (KPIs) including total revenue, total profit, total orders, and return rate.
 
@@ -752,7 +758,9 @@ This interactive dashboard provides a comprehensive overview of AdventureWorks' 
 
   ![Executive Dashboard Reset View](/images/dashboard_animations/exec_dashboard_reset.gif)
 
-**Regional Sales Map:**
+<a id="regional-sales-map"></a>
+
+### Regional Sales Map
 
 - **Global Sales:** A map displays bubbles sized proportionally to the total order volume of each country.
 
@@ -762,7 +770,9 @@ This interactive dashboard provides a comprehensive overview of AdventureWorks' 
 
   ![Regional Exploration with Slicer](/images/dashboard_animations/map_slicer_01.gif)
 
-**Product Details (Accessible via Drill-Through from Executive Dashboard):**
+<a id="product-details"></a>
+
+### Product Details (Accessible via Drill-Through from Executive Dashboard)
 
 - **In-Depth Product Performance:** A card displays the selected product.
 
@@ -784,7 +794,9 @@ This interactive dashboard provides a comprehensive overview of AdventureWorks' 
   ![Performance Trend Drill-down](/images/dashboard_animations/product_matric_selection_drill_down.gif)
   ![Performance Trend Drill-up](/images/dashboard_animations/product_matric_selection_drill_up.gif)
 
-**Customer Details:**
+<a id="customer-details"></a>
+
+### Customer Details
 
 - **Customer Base Summary:** Cards display a quick summary of total customers and average revenue per customer.
 
